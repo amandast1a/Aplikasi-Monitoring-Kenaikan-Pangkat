@@ -38,7 +38,6 @@
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/css/pages/cards-advance.css" />
-    <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/css/pages/page-profile.css" />
 
     <!-- Helpers -->
     <script src="{{ asset('assets/') }}/vendor/js/helpers.js"></script>

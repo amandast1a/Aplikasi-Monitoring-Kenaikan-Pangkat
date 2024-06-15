@@ -30,6 +30,12 @@
             <div data-i18n="Profile">Profile</div>
         </a>
       </li>
+      <li class="menu-item {{ Request::is('index-form') ? 'active' : '' }}">
+        <a href="/index-form" class="menu-link">
+            <i class="menu-icon ti ti-list-details"></i>
+            <div data-i18n="index-form">index-form</div>
+        </a>
+      </li>
 
     </ul>
   </aside>

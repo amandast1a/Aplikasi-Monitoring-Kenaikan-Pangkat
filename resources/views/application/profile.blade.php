@@ -10,6 +10,8 @@
   <head>
     <title>Profile</title>
     @include('layouts application.header')
+    {{-- page css --}}
+    <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/css/pages/page-profile.css" />
   </head>
 
   <body>
