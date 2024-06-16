@@ -4,6 +4,7 @@ use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Route::get('/', function () {
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/index-form', [FormController::class, 'index'])->name('index-form');
+Route::get('/table', [TableController::class, 'index'])->name('index-form');

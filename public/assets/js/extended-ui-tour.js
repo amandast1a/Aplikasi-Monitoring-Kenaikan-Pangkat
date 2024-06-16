@@ -12,7 +12,7 @@
       nextBtnClass = 'btn btn-sm btn-primary btn-next';
     tour.addStep({
       title: 'Navbar',
-      text: 'This is your navbar',
+      text: 'Ini adalah Navbar, nemampilkan beberapa fitur diataranya ada ganti tema, notifikasi, dan Profile anda.',
       attachTo: { element: '.navbar', on: 'bottom' },
       buttons: [
         {
@@ -28,9 +28,9 @@
       ]
     });
     tour.addStep({
-      title: 'Card',
-      text: 'This is a card',
-      attachTo: { element: '.tour-card', on: 'top' },
+      title: 'Data Pengajuan',
+      text: 'Bagian ini menampilkan data dari pengusulan dokumen anda su',
+      attachTo: { element: '.card', on: 'top' },
       buttons: [
         {
           text: 'Skip',
@@ -50,9 +50,9 @@
       ]
     });
     tour.addStep({
-      title: 'Footer',
-      text: 'This is the Footer',
-      attachTo: { element: '.footer', on: 'top' },
+      title: 'Sidebar',
+      text: 'Ini adalah Sidebar, daftar halaman yang bisa anda lihat',
+      attachTo: { element: '.layout-menu', on: 'right' },
       buttons: [
         {
           text: 'Skip',
@@ -72,8 +72,8 @@
       ]
     });
     tour.addStep({
-      title: 'Upgrade',
-      text: 'Click here to upgrade plan',
+      title: 'Selesai',
+      text: 'Terima Kasih Sudah Menggunakan Aplikasi Ini :)',
       attachTo: { element: '.footer-link', on: 'top' },
       buttons: [
         {

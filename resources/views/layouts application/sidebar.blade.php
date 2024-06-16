@@ -2,10 +2,11 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-      <a href="index.html" class="app-brand-link">
+      <a href="/" class="app-brand-link">
         <span class="app-brand-logo demo">
             <img src="{{ asset('assets/') }}/img/favicon/polindra.png" alt="" width="40px" height="40px">
         </span>
+        <span class="app-brand-text demo menu-text fw-bold">Pengusul</span>
       </a>
 
       <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -24,12 +25,12 @@
             <div data-i18n="Dashboards">Dashboards</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('profile') ? 'active' : '' }}">
+      {{-- <li class="menu-item {{ Request::is('profile') ? 'active' : '' }}">
         <a href="/profile" class="menu-link">
             <i class="menu-icon tf-icons ti ti-user"></i>
             <div data-i18n="Profile">Profile</div>
         </a>
-      </li>
+      </li> --}}
       <li class="menu-item {{ Request::is('index-form') ? 'active' : '' }}">
         <a href="/index-form" class="menu-link">
             <i class="menu-icon ti ti-list-details"></i>

@@ -39,7 +39,7 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Horizontal Layouts</h4>
+                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Kenaikan Pangkat</h4>
 
                 <!-- Bootstrap Validation -->
                 <div class="col-md">
@@ -55,7 +55,7 @@
                               <option value="Oktober">Oktober</option>
                               <option value="Desember">Desember</option>
                             </select>
-                            <div class="valid-feedback">Looks good!</div>
+                            <div class="valid-feedback">Terisi</div>
                             <div class="invalid-feedback">Silahkan pilih periode</div>
                           </div>
                           <div class="mb-3">
@@ -66,7 +66,7 @@
                               id="bs-validation-name"
                               placeholder="masukan nama lengkap"
                               required />
-                            <div class="valid-feedback">Looks good!</div>
+                            <div class="valid-feedback">Terisi</div>
                             <div class="invalid-feedback">Silahkan masukan nama anda</div>
                           </div>
                           <div class="mb-3">
@@ -77,7 +77,7 @@
                               id="bs-validation-name"
                               placeholder="masukan NIP"
                               required />
-                            <div class="valid-feedback">Looks good!</div>
+                            <div class="valid-feedback">Terisi</div>
                             <div class="invalid-feedback">Silahkan masukan nomor NIP anda</div>
                           </div>
                           <div class="mb-3">
@@ -102,7 +102,7 @@
                               <option value="Pembina Madya - IV/D">Pembina Madya - IV/D</option>
                               <option value="Pembina Utama - IV/E">Pembina Utama - IV/E</option>
                             </select>
-                            <div class="valid-feedback">Looks good!</div>
+                            <div class="valid-feedback">Terisi</div>
                             <div class="invalid-feedback">Silahkan pilih pangkat/golongan ruang</div>
                           </div>
                           <div class="mb-3">
@@ -113,7 +113,7 @@
                               id="bs-validation-name"
                               placeholder="masukan jabatan"
                               required />
-                            <div class="valid-feedback">Looks good!</div>
+                            <div class="valid-feedback">Terisi</div>
                             <div class="invalid-feedback">Silahkan masukan jabatan anda</div>
                           </div>
                           <div class="mb-3">
@@ -124,7 +124,7 @@
                               id="bs-validation-dob"
                               placeholder="YYYY-MM-DD"
                               required />
-                            <div class="valid-feedback">Looks good!</div>
+                            <div class="valid-feedback">Terisi</div>
                             <div class="invalid-feedback">Silahkan masukan tanggal lahir anda</div>
                           </div>
                           <div class="mb-3">
@@ -135,11 +135,11 @@
                               id="bs-validation-name"
                               placeholder="masukan no WA"
                               required />
-                            <div class="valid-feedback">Looks good!</div>
+                            <div class="valid-feedback">Terisi</div>
                             <div class="invalid-feedback">Silahkan masukan nomor whatsapp anda</div>
                           </div>
                           <div class="mb-3">
-                            <label class="form-label" for="bs-validation-upload-file">SURAT PENGANTAR (dari Kepala SKPD)</label>
+                            <label class="form-label" for="bs-validation-upload-file">SURAT PENGANTAR (dari Kepala SKPD) file max 1MB</label>
                             <input type="file" class="form-control" id="bs-validation-upload-file" required />
                           </div>
                           <div class="mb-3">
