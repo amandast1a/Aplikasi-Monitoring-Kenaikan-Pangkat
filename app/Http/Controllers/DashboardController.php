@@ -14,6 +14,11 @@ class DashboardController extends Controller
         return view('application.dashboard');
 
     }
+    public function super()
+    {
+        return view('super-admin.dashboard');
+
+    }
 
     /**
      * Show the form for creating a new resource.

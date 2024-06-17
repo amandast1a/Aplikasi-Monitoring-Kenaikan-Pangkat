@@ -3,22 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Form_jabatan_fungsional;
 
-class TableController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function jabatanFungsional()
+    public function index()
     {
-        $Form_jabatan_fungsional = Form_jabatan_fungsional::all();
-        return view('application.table-jabatan-fungsional', compact('Form_jabatan_fungsional'));
-    }
-
-    public function regular()
-    {
-        return view('application.table-regular');
+        return view('super-admin.role');
     }
 
     /**

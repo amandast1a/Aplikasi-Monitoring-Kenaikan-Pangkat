@@ -8,8 +8,8 @@
   data-assets-path="../../assets/"
   data-template="vertical-menu-template">
   <head>
-    <title>Dashboard application</title>
-    @include('layouts application.header')
+    <title>Dashboard super admin</title>
+    @include('layouts admin.header')
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/shepherd/shepherd.css" />
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/animate-on-scroll/animate-on-scroll.css" />
   </head>
@@ -19,12 +19,12 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
 
-        @include('layouts application.sidebar')
+        @include('layouts admin.sidebar')
 
         <!-- Layout container -->
         <div class="layout-page">
 
-            @include('layouts application.navbar')
+            @include('layouts admin.navbar')
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
@@ -98,17 +98,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-12 mb-4 col-md-12">
-                    <div class="card tour-card">
-                      <h5 class="card-header">Pengajuan Kenaikan Pangkat</h5>
-                      <div class="card-body">
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-regular" >Formulir usul kenaikan pangkat reguler</a>
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-jabatan-fungsional" >Formulir usul kenaikan pangkat jabatan fungsional</a>
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-jabatan-fungsional" >Formulir usul kenaikan pangkat jabatan struktural</a>
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-jabatan-fungsional" >Formulir usul kenaikan pangkat penyesuaian ijazah</a>
-                      </div>
-                    </div>
-                  </div>
                   <!-- Modal -->
                   <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-fullscreen" role="document">
@@ -141,7 +130,7 @@
                                       </div>
                                       <div class="card-body">
                                         <p class="mb-2">
-                                          Our main goal is to design a new mobile application for our client. The customer wants a
+                                          Our main goal is to design a new mobile admin for our client. The customer wants a
                                           clean & flat design.
                                         </p>
                                         <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -614,7 +603,7 @@
 
             <!-- / Content -->
 
-            @include('layouts application.footer')
+            @include('layouts admin.footer')
 
             <div class="content-backdrop fade"></div>
           </div>
@@ -631,7 +620,7 @@
     </div>
     <!-- / Layout wrapper -->
 
-    @include('layouts application.script')
+    @include('layouts admin.script')
     <!-- Vendors JS -->
     <script src="{{ asset('assets/') }}/vendor/libs/shepherd/shepherd.js"></script>
     <!-- Page JS -->
