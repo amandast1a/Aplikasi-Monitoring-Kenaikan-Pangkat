@@ -29,7 +29,7 @@
     });
     tour.addStep({
       title: 'Data Pengajuan',
-      text: 'Bagian ini menampilkan data dari pengusulan dokumen anda su',
+      text: 'Bagian ini menampilkan data dari pengusulan dokumen anda',
       attachTo: { element: '.card', on: 'top' },
       buttons: [
         {

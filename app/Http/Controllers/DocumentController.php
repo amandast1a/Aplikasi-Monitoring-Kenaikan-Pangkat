@@ -4,14 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class DocumentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function tablePeriode()
     {
-        return view('super-admin.crud-role.role');
+        return view('super-admin.crud-periode.table-periode');
+    }
+
+    public function tableJabatan()
+    {
+        return view('super-admin.crud-jabatan.table-jabatan');
+    }
+
+    public function tableKecamatan()
+    {
+        return view('super-admin.crud-kecamatan.table-kecamatan');
+    }
+
+    public function tableDinas()
+    {
+        return view('super-admin.crud-dinas.table-dinas');
     }
 
     /**

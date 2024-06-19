@@ -42,7 +42,7 @@
                         <div class="row gy-3">
                           <div class="col-md-3 col-6">
                             <div class="d-flex align-items-center">
-                              <div class="badge rounded-pill bg-label-primary me-3 p-2">
+                              <div class="badge rounded-pill bg-label-warning me-3 p-2">
                                 <i class="ti ti-chart-pie-2 ti-sm"></i>
                               </div>
                               <div class="card-info">

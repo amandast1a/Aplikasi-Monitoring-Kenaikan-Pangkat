@@ -2,7 +2,7 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-      <a href="/" class="app-brand-link">
+      <a href="/dashboard-super-admin" class="app-brand-link">
         <span class="app-brand-logo demo">
             <img src="{{ asset('assets/') }}/img/favicon/polindra.png" alt="" width="40px" height="40px">
         </span>
@@ -19,8 +19,8 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboards -->
-      <li class="menu-item {{ Request::is('/') ? 'active' : '' }}">
-        <a href="/" class="menu-link">
+      <li class="menu-item {{ Request::is('dashboard-super-admin') ? 'active' : '' }}">
+        <a href="/dashboard-super-admin" class="menu-link">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
             <div data-i18n="Dashboards">Dashboards</div>
         </a>
@@ -42,6 +42,40 @@
             <i class="menu-icon tf-icons ti ti-file"></i>
             <div data-i18n="pages">pages</div>
         </a>
+      </li>
+      <li class="menu-item {{ Request::is('document-pengusul') ? 'active' : '' }}">
+        <a href="/document-pengusul" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-checklist"></i>
+            <div data-i18n="Document Pengusul">Document Pengusul</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons ti ti-files"></i>
+          <div data-i18n="Setting Document">Setting Document</div>
+        </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('periode') ? 'active' : '' }}">
+                    <a href="/periode" class="menu-link" >
+                    <div data-i18n="Periode">Periode</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('jabatan') ? 'active' : '' }}">
+                    <a href="/jabatan" class="menu-link" >
+                    <div data-i18n="jabatan">Jabatan</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('kecamatan') ? 'active' : '' }}">
+                    <a href="/kecamatan" class="menu-link" >
+                    <div data-i18n="Kecamatan">Kecamatan</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('dinas') ? 'active' : '' }}">
+                    <a href="/dinas" class="menu-link" >
+                    <div data-i18n="Dinas">Dinas</div>
+                    </a>
+                </li>
+            </ul>
       </li>
 
     </ul>

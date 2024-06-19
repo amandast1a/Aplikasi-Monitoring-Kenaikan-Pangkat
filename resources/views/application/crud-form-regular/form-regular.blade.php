@@ -83,7 +83,7 @@
                           <div class="mb-3">
                             <label class="form-label" for="bs-validation-country">Pangkat/Golongan Ruang</label>
                             <select class="form-select" id="bs-validation-country" required>
-                              <option value="">Pilih Periode</option>
+                              <option value="">Pilih Pangkat/Golongan Ruang</option>
                               <option value="Juru Muda - I/A">Juru Muda - I/A</option>
                               <option value="Juru Muda TK.I - I/B">Juru Muda TK.I - I/B</option>
                               <option value="Juru - I/C">Juru - I/C</option>

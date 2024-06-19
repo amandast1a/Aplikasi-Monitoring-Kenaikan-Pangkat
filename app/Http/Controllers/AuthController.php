@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('super-admin.crud-role.role');
+        //
     }
 
     /**
@@ -19,7 +19,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('super-admin.crud-role.form-user');
     }
 
     /**

@@ -11,17 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forms', function (Blueprint $table) {
+        Schema::create('form_jabatan_fungsionals', function (Blueprint $table) {
             $table->id();
             $table->String('periode');
             $table->String('nama');
             $table->String('nip');
-            $table->String('golongan_id');
+            $table->String('golongan');
             $table->String('jabatan');
             $table->date('date');
-            $table->number('nomor_wa');
+            $table->datetime('time');
+            $table->string('nomor_wa');
             $table->String('doc_suratPengantar');
             $table->String('doc_skPangkat');
+            $table->String('doc_pakKonvensional');
             $table->String('doc_pakIntegrasi');
             $table->String('doc_pakKonversi');
             $table->String('doc_penilaian2022');

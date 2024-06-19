@@ -13,12 +13,12 @@ class TableController extends Controller
     public function jabatanFungsional()
     {
         $Form_jabatan_fungsional = Form_jabatan_fungsional::all();
-        return view('application.table-jabatan-fungsional', compact('Form_jabatan_fungsional'));
+        return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional'));
     }
 
     public function regular()
     {
-        return view('application.table-regular');
+        return view('application.crud-form-regular.table-regular');
     }
 
     /**
