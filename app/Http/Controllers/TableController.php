@@ -15,10 +15,19 @@ class TableController extends Controller
         $Form_jabatan_fungsional = Form_jabatan_fungsional::all();
         return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional'));
     }
+    public function jabatanFungsionalShow($id)
+    {
+        $form = Form_jabatan_fungsional::find($id);
+        return view('application.crud-form-jabatan.detail-form', ['form' => $form,]);
+    }
 
     public function regular()
     {
         return view('application.crud-form-regular.table-regular');
+    }
+    public function jabatanStruktural()
+    {
+        return view('application.crud-form-struktural.table-jabatan-struktural');
     }
 
     /**

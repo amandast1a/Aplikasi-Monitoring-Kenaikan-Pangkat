@@ -73,9 +73,8 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             <form >
-                                                <a class="dropdown-item"
-                                                    href=""><i
-                                                        class="ti ti-pencil me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="{{ route('jabatan.fungsional.show', $item->id) }}"><i class="ti ti-eye me-2"></i> Detail</a>
+                                                <a class="dropdown-item" href=""><i class="ti ti-pencil me-2"></i> Edit</a>
                                                 <button type="submit" class="dropdown-item"><i
                                                         class="ti ti-trash me-2"></i> Delete</button>
                                             </form>
@@ -87,6 +86,88 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel1">Formulir usul kenaikan pangkat jabatan fungsional</h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <label for="periode" class="form-label">Periode</label>
+                                  <input type="text" id="periode" class="form-control" readonly  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <label for="nama" class="form-label">Nama</label>
+                                  <input type="text" id="nama" class="form-control" readonly  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <label for="nip" class="form-label">nip</label>
+                                  <input type="text" id="nip" class="form-control" readonly  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <label for="golongan" class="form-label">golongan</label>
+                                  <input type="text" id="golongan" class="form-control" readonly  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <label for="jabatan" class="form-label">jabatan</label>
+                                  <input type="text" id="jabatan" class="form-control" readonly  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <label for="unit_kerja" class="form-label">unit kerja</label>
+                                  <input type="text" id="unit_kerja" class="form-control" readonly  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <label for="nomor_wa" class="form-label">nomor wa</label>
+                                  <input type="text" id="nomor_wa" class="form-control" readonly  />
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                    <label class="form-label">Documents</label>
+                                    <ul id="documentList" class="list-group">
+                                        <!-- Links to documents will be appended here -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <iframe id="pdfViewer" class="list-group" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <a id="downloadLink" class="btn btn-primary" href="#" download>Download PDF</a>
+                                </div>
+                            </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                                Close
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
                 <!--/ Basic Bootstrap Table -->
@@ -129,5 +210,6 @@
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+
   </body>
 </html>

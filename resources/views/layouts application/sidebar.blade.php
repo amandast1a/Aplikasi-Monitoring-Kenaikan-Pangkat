@@ -25,6 +25,12 @@
             <div data-i18n="Dashboards">Dashboards</div>
         </a>
       </li>
+      <li class="menu-item {{ Request::is('notif-pengusul') ? 'active' : '' }}">
+        <a href="/notif-pengusul" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-bell"></i>
+            <div data-i18n="Notifikasi">Notifikasi</div>
+        </a>
+      </li>
       {{-- <li class="menu-item {{ Request::is('profile') ? 'active' : '' }}">
         <a href="/profile" class="menu-link">
             <i class="menu-icon tf-icons ti ti-user"></i>
@@ -53,8 +59,8 @@
                 <div data-i18n="Formulir usul kenaikan pangkat jabatan fungsional">Formulir usul kenaikan pangkat jabatan fungsional</div>
                 </a>
             </li>
-            <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
-                <a href="/" class="menu-link" >
+            <li class="menu-item {{ Request::is('table-jabatan-struktural') ? 'active' : '' }}">
+                <a href="/table-jabatan-struktural" class="menu-link" >
                 <div data-i18n="Formulir usul kenaikan pangkat jabatan struktural">Formulir usul kenaikan pangkat jabatan struktural</div>
                 </a>
             </li>

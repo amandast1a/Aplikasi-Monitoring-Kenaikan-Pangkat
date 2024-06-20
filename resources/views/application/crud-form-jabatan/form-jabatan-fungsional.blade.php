@@ -113,6 +113,12 @@
                                 <div class="invalid-feedback">Silahkan masukan tanggal lahir anda</div>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label" for="bs-validation-dob">Unit kerja</label>
+                                <input type="text" class="form-control" id="bs-validation-unit_kerja" name="unit_kerja" placeholder="masukan unit kerja" required />
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan masukan unit kerja anda</div>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label" for="bs-validation-wa">No WA</label>
                                 <input type="text" class="form-control" id="bs-validation-wa" name="nomor_wa" placeholder="masukan no WA" required />
                                 <div class="valid-feedback">Terisi</div>

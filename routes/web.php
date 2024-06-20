@@ -11,6 +11,7 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DocumentPengusulController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +29,16 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::get('/notif-pengusul', [NotificationController::class, 'notifPengusul']);
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/form-regular', [FormController::class, 'regular']);
+Route::get('/form-jabatan-struktural', [FormController::class, 'jabatanStruktural']);
 Route::get('/form-jabatan-fungsional', [FormController::class, 'jabatanFungsional']);
 Route::post('/form-jabatan-fungsional/post', [FormController::class, 'jabatanStore'])->name('jabatan.fungsional.post');
 Route::get('/table-jabatan-fungsional', [TableController::class, 'jabatanFungsional']);
+Route::get('/form-jabatan-fungsional/{id}', [TableController::class, 'jabatanFungsionalShow'])->name('jabatan.fungsional.show');
+Route::get('/table-jabatan-struktural', [TableController::class, 'jabatanStruktural']);
 Route::get('/table-regular', [TableController::class, 'regular']);
 
 

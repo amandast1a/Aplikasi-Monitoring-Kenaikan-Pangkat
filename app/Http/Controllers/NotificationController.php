@@ -9,9 +9,9 @@ class NotificationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function notifPengusul()
     {
-        //
+        return view('application.notif.index');
     }
 
     /**

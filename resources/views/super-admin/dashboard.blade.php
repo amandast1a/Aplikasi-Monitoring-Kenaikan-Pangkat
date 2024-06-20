@@ -80,7 +80,7 @@
                               </div>
                               <div class="card-info">
                                 <h5 class="mb-0">12</h5>
-                                <small>Pengusul</small>
+                                <small>Yang diusul</small>
                               </div>
                             </div>
                           </div>

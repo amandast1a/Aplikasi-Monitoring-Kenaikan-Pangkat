@@ -10,6 +10,17 @@ class FormController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function utama()
+    {
+        return view('pengusul.index');
+    }
+
+    public function jabatanStruktural()
+    {
+        return view('application.crud-form-struktural.form-jabatan-struktural');
+    }
+
+    // halaman form jabatan Fungsional
     public function jabatanFungsional()
     {
         return view('application.crud-form-jabatan.form-jabatan-fungsional');
@@ -22,6 +33,7 @@ class FormController extends Controller
             'nip' => 'required|string',
             'golongan' => 'required|string',
             'jabatan' => 'required|string',
+            'unit_kerja' => 'required|string',
             'date' => 'required|date',
             'nomor_wa' => 'required|string',
             'doc_suratPengantar' => 'required|file|mimes:pdf|max:1024',
@@ -43,20 +55,78 @@ class FormController extends Controller
         $dataUpload->nip = $request->nip;
         $dataUpload->golongan = $request->golongan;
         $dataUpload->jabatan = $request->jabatan;
+        $dataUpload->unit_kerja = $request->unit_kerja;
         $dataUpload->date = $request->date;
         $dataUpload->nomor_wa = $request->nomor_wa;
 
-        $dataUpload->doc_suratPengantar = $request->file('doc_suratPengantar')->store('documentJabatans', 'public');
-        $dataUpload->doc_skPangkat = $request->file('doc_skPangkat')->store('documentJabatans', 'public');
-        $dataUpload->doc_pakKonvensional = $request->file('doc_pakKonvensional')->store('documentJabatans', 'public');
-        $dataUpload->doc_pakIntegrasi = $request->file('doc_pakIntegrasi')->store('documentJabatans', 'public');
-        $dataUpload->doc_pakKonversi = $request->file('doc_pakKonversi')->store('documentJabatans', 'public');
-        $dataUpload->doc_penilaian2022 = $request->file('doc_penilaian2022')->store('documentJabatans', 'public');
-        $dataUpload->doc_penilaian2023 = $request->file('doc_penilaian2023')->store('documentJabatans', 'public');
-        $dataUpload->doc_jabatanLama = $request->file('doc_jabatanLama')->store('documentJabatans', 'public');
-        $dataUpload->doc_jabatanTerakhir = $request->file('doc_jabatanTerakhir')->store('documentJabatans', 'public');
-        $dataUpload->doc_pendidik = $request->file('doc_pendidik')->store('documentJabatans', 'public');
-        $dataUpload->doc_uji = $request->file('doc_uji')->store('documentJabatans', 'public');
+        // Handle each file upload individually
+        if ($request->hasFile('doc_suratPengantar')) {
+            $upload = $request->file('doc_suratPengantar');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_suratPengantar = $nameFile;
+        }
+
+        if ($request->hasFile('doc_skPangkat')) {
+            $upload = $request->file('doc_skPangkat');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_skPangkat = $nameFile;
+        }
+        if ($request->hasFile('doc_pakKonvensional')) {
+            $upload = $request->file('doc_pakKonvensional');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_pakKonvensional = $nameFile;
+        }
+        if ($request->hasFile('doc_pakIntegrasi')) {
+            $upload = $request->file('doc_pakIntegrasi');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_pakIntegrasi = $nameFile;
+        }
+        if ($request->hasFile('doc_pakKonversi')) {
+            $upload = $request->file('doc_pakKonversi');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_pakKonversi = $nameFile;
+        }
+        if ($request->hasFile('doc_penilaian2022')) {
+            $upload = $request->file('doc_penilaian2022');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_penilaian2022 = $nameFile;
+        }
+        if ($request->hasFile('doc_penilaian2023')) {
+            $upload = $request->file('doc_penilaian2023');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_penilaian2023 = $nameFile;
+        }
+        if ($request->hasFile('doc_jabatanLama')) {
+            $upload = $request->file('doc_jabatanLama');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_jabatanLama = $nameFile;
+        }
+        if ($request->hasFile('doc_jabatanTerakhir')) {
+            $upload = $request->file('doc_jabatanTerakhir');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_jabatanTerakhir = $nameFile;
+        }
+        if ($request->hasFile('doc_pendidik')) {
+            $upload = $request->file('doc_pendidik');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_pendidik = $nameFile;
+        }
+        if ($request->hasFile('doc_uji')) {
+            $upload = $request->file('doc_uji');
+            $nameFile = time() . rand(100, 999) . "." . $upload->getClientOriginalExtension();
+            $upload->move(public_path('assets/documentJabatans'), $nameFile);
+            $dataUpload->doc_uji = $nameFile;
+        }
 
         $dataUpload->save();
 
