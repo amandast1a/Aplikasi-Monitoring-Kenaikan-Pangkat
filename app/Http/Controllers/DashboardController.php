@@ -19,6 +19,11 @@ class DashboardController extends Controller
         return view('super-admin.dashboard');
 
     }
+    public function verifikator()
+    {
+        return view('verifikator.dashboard');
+
+    }
 
     /**
      * Show the form for creating a new resource.

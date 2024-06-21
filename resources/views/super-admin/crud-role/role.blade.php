@@ -188,7 +188,7 @@
                     <div class="card">
                         <div class="col-md-12 d-flex justify-content-between align-items-cente">
                             <h5 class="card-header">Table User</h5>
-                            <a href="/form-user" class="btn btn-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Tambah Data</a>
+                            <a href="/register-role" class="btn btn-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Tambah Data</a>
 
                         </div>
                         <div class="table-responsive text-nowrap">
@@ -196,13 +196,36 @@
                             <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Unit kerja</th>
-                                <th>Level</th>
+                                <th>NIP</th>
+                                <th>Role</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
+                                @foreach ( $user as $item )
+                                <tr>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->nip }}</td>
+                                    <td>{{ $item->level }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown">
+                                                <i class="ti ti-dots-vertical"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <form >
+                                                    <a class="dropdown-item" href="{{ route('jabatan.fungsional.show', $item->id) }}"><i class="ti ti-eye me-2"></i> Detail</a>
+                                                    <a class="dropdown-item" href=""><i class="ti ti-pencil me-2"></i> Edit</a>
+                                                    <button type="submit" class="dropdown-item"><i
+                                                            class="ti ti-trash me-2"></i> Delete</button>
+                                                </form>
+                                            </div>
 
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         </div>

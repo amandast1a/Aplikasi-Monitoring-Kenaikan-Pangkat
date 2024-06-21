@@ -46,89 +46,82 @@
                     <div class="card">
                       <h5 class="card-header">Formulir Pengguna</h5>
                       <div class="card-body">
-                        <form class="needs-validation" novalidate>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-name">Nama lengkap</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="bs-validation-name"
-                              placeholder="masukan nama lengkap"
-                              required />
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan masukan nama lengkap</div>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-country">Pilih Level</label>
-                            <select class="form-select" id="bs-validation-country" required>
-                              <option value="">Pilih Level</option>
-                              <option value="user">User</option>
-                              <option value="verifikator">Verifikator</option>
-                              <option value="superadmin">Superadmin</option>
-                            </select>
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan pilih dinas</div>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-country">Pilih Kecamatan</label>
-                            <select class="form-select" id="bs-validation-country" required>
-                              <option value="">Pilih Kecamatan</option>
-                              <option value="Jatibarang">Jatibarang</option>
-                              <option value="Bangkir">Bangkir</option>
-                              <option value="Sindang">Sindang</option>
-                            </select>
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan pilih kecamatan</div>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-country">Pilih Dinas</label>
-                            <select class="form-select" id="bs-validation-country" required>
-                              <option value="">Pilih Dinas</option>
-                              <option value="Dinas pehubungan">Dinas pehubungan</option>
-                              <option value="Dinas Perairan">Dinas Perairan</option>
-                            </select>
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan pilih dinas</div>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-jabatan">Jabatan</label>
-                            <input type="text" class="form-control" id="bs-validation-jabatan" name="jabatan" placeholder="masukan jabatan" required />
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan masukan jabatan anda</div>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-nip">NIP</label>
-                            <input type="text" class="form-control" id="bs-validation-nip" name="nip" placeholder="masukan NIP" required />
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan masukan nomor NIP anda</div>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-dob">Tanggal lahir</label>
-                            <input type="text" class="form-control flatpickr-validation" id="bs-validation-dob" name="date" placeholder="YYYY-MM-DD" required />
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan masukan tanggal lahir anda</div>
-                          </div>
-                          <div class="mb-3 form-password-toggle">
-                            <label class="form-label" for="bs-validation-password">Password</label>
-                            <div class="input-group input-group-merge">
-                              <input
-                                type="password"
-                                id="bs-validation-password"
-                                class="form-control"
-                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                required />
-                              <span class="input-group-text cursor-pointer" id="basic-default-password4"
-                                ><i class="ti ti-eye-off"></i
-                              ></span>
+                        <form class="needs-validation" action="{{ route('register.store') }}" method="POST" novalidate>
+                            {{ csrf_field() }}
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-name">Nama lengkap</label>
+                                <input type="text" class="form-control" id="bs-validation-name" name="nama" placeholder="masukan nama lengkap" required />
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan masukan nama lengkap</div>
                             </div>
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan masukan password</div>
-                          </div>
-                          <div class="row">
-                            <div class="col-12">
-                              <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-level">Pilih Role</label>
+                                <select class="form-select" id="bs-validation-level" name="level" required>
+                                    <option value="pengusul">Pengusul</option>
+                                    <option value="verifikator">Verifikator</option>
+                                    <option value="superadmin">Superadmin</option>
+                                </select>
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan pilih level</div>
                             </div>
-                          </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-kecamatan">Pilih Kecamatan</label>
+                                <select class="form-select" id="bs-validation-kecamatan" name="kecamatan" required>
+                                    <option value="">Pilih Kecamatan</option>
+                                    @foreach ($kecamatan as $kecamatan)
+                                        @if (old('kecamatan') === $kecamatan)
+                                            <option value="{{ $kecamatan->kecamatan }}" selected>{{ $kecamatan->kecamatan }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $kecamatan->kecamatan }}">{{ $kecamatan->kecamatan }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan pilih kecamatan</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-dinas">Pilih Dinas</label>
+                                <select class="form-select" id="bs-validation-dinas" name="dinas" required>
+                                    <option value="">Pilih Dinas</option>
+                                    <option value="Dinas Perhubungan">Dinas Perhubungan</option>
+                                    <option value="Dinas Perairan">Dinas Perairan</option>
+                                </select>
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan pilih dinas</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-jabatan">Jabatan</label>
+                                <input type="text" class="form-control" id="bs-validation-jabatan" name="jabatan" placeholder="masukan jabatan" required />
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan masukan jabatan anda</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-nip">NIP</label>
+                                <input type="text" class="form-control" id="bs-validation-nip" name="nip" placeholder="masukan NIP" required />
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan masukan nomor NIP anda</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-dob">Tanggal lahir</label>
+                                <input type="text" class="form-control flatpickr-validation" id="bs-validation-dob" name="tanggal_lahir" placeholder="YYYY-MM-DD" required />
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan masukan tanggal lahir anda</div>
+                            </div>
+                            <div class="mb-3 form-password-toggle">
+                                <label class="form-label" for="bs-validation-password">Password</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="bs-validation-password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
+                                    <span class="input-group-text cursor-pointer" id="basic-default-password4"><i class="ti ti-eye-off"></i></span>
+                                </div>
+                                <div class="valid-feedback">Terisi</div>
+                                <div class="invalid-feedback">Silahkan masukan password</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
                         </form>
                       </div>
                     </div>

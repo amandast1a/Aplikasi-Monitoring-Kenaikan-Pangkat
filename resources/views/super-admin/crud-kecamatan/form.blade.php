@@ -46,13 +46,15 @@
                     <div class="card">
                       <h5 class="card-header">Formulir kecamatan</h5>
                       <div class="card-body">
-                        <form class="needs-validation" novalidate>
+                        <form action="{{ route('kecamatan.proses') }}" method="post" class="needs-validation" novalidate>
+                            @csrf
                           <div class="mb-3">
                             <label class="form-label" for="bs-validation-name">Kecamatan</label>
                             <input
                               type="text"
                               class="form-control"
                               id="bs-validation-name"
+                              name="kecamatan"
                               placeholder="masukan kecamatan"
                               required />
                             <div class="valid-feedback">Terisi</div>

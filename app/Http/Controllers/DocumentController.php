@@ -19,10 +19,6 @@ class DocumentController extends Controller
         return view('super-admin.crud-jabatan.table-jabatan');
     }
 
-    public function tableKecamatan()
-    {
-        return view('super-admin.crud-kecamatan.table-kecamatan');
-    }
 
     public function tableDinas()
     {
