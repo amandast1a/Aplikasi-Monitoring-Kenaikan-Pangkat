@@ -55,6 +55,11 @@
           <div data-i18n="Setting Document">Setting Document</div>
         </a>
             <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('status') ? 'active' : '' }}">
+                    <a href="/status" class="menu-link" >
+                    <div data-i18n="Status">Status</div>
+                    </a>
+                </li>
                 <li class="menu-item {{ Request::is('periode') ? 'active' : '' }}">
                     <a href="/periode" class="menu-link" >
                     <div data-i18n="Periode">Periode</div>

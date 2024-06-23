@@ -4,25 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DocumentController extends Controller
+class FormJabatanStrukturalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function tablePeriode()
+    public function index()
     {
-        return view('super-admin.crud-periode.table-periode');
-    }
-
-    public function tableJabatan()
-    {
-        return view('super-admin.crud-jabatan.table-jabatan');
-    }
-
-
-    public function tableDinas()
-    {
-        return view('super-admin.crud-dinas.table-dinas');
+        return view('application.crud-form-struktural.table-jabatan-struktural');
     }
 
     /**
@@ -30,7 +19,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('application.crud-form-struktural.form-jabatan-struktural');
     }
 
     /**

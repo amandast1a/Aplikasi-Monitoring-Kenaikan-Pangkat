@@ -4,28 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form_jabatan_fungsional;
+use Illuminate\Support\Facades\Auth;
 
-class FormController extends Controller
+class FormJabatanFungsionalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function utama()
+    public function index()
     {
-        return view('pengusul.index');
+        $user = Auth::user();
+        $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
+        return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional'));
     }
 
-    public function jabatanStruktural()
-    {
-        return view('application.crud-form-struktural.form-jabatan-struktural');
-    }
-
-    // halaman form jabatan Fungsional
-    public function jabatanFungsional()
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
         return view('application.crud-form-jabatan.form-jabatan-fungsional');
     }
-    public function jabatanStore(Request $request)
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
         $request->validate([
             'periode' => 'required|string',
@@ -50,6 +54,7 @@ class FormController extends Controller
         ]);
 
         $dataUpload = new Form_jabatan_fungsional;
+        $dataUpload->user_id = Auth::id();
         $dataUpload->periode = $request->periode;
         $dataUpload->nama = $request->nama;
         $dataUpload->nip = $request->nip;
@@ -133,55 +138,13 @@ class FormController extends Controller
         return redirect('/table-jabatan-fungsional')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
-
-
-    public function regular()
-    {
-        return view('application.crud-form-regular.form-regular');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-
-
-     public function periode()
-    {
-        return view('super-admin.crud-periode.form');
-    }
-
-     public function jabatan()
-    {
-        return view('super-admin.crud-jabatan.form');
-    }
-     public function kecamatan()
-    {
-        return view('super-admin.crud-kecamatan.form');
-    }
-     public function dinas()
-    {
-        return view('super-admin.crud-dinas.form');
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $form = Form_jabatan_fungsional::find($id);
+        return view('application.crud-form-jabatan.detail-form', ['form' => $form,]);
     }
 
     /**

@@ -54,6 +54,7 @@
                             <th>Nama</th>
                             <th>NIP</th>
                             <th>Jabatan</th>
+                            <th>Status</th>
                             <th>Waktu</th>
                             <th>Aksi</th>
                         </tr>
@@ -64,6 +65,7 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->nip }}</td>
                                 <td>{{ $item->jabatan }}</td>
+                                <td><span class="badge bg-label-warning me-1">{{ $item->status }}</span></td>
                                 <td>{{ $item->time }}</td>
                                 <td>
                                     <div class="dropdown">

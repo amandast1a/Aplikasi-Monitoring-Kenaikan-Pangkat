@@ -108,5 +108,16 @@
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if ($message = Session::get('success'))
+        <script>
+            Swal.fire('{{ $message }}', "", "success")
+        </script>
+    @endif
+    @if ($message = Session::get('failed'))
+        <script>
+            Swal.fire('{{ $message }}', "", "warning");
+        </script>
+    @endif
   </body>
 </html>

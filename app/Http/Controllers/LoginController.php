@@ -17,23 +17,23 @@ class LoginController extends Controller
     }
 
     public function authenticate(Request $request)
-{
-    if (Auth::attempt($request->only('nip', 'password'))) {
-        $user = Auth::user();
+    {
+        if (Auth::attempt($request->only('nip', 'password'))) {
+            $user = Auth::user();
 
-        switch ($user->level) {
-            case 'superadmin':
-                return redirect('dashboard-super-admin');
-            case 'verifikator':
-                return redirect('dashboard-verifikator');
-            case 'pengusul':
-                return redirect('dashboard-pengusul');
-            default:
-                return redirect('/'); // Redirect to home or a default page
+            switch ($user->level) {
+                case 'superadmin':
+                    return redirect('dashboard-super-admin');
+                case 'verifikator':
+                    return redirect('dashboard-verifikator');
+                case 'pengusul':
+                    return redirect('dashboard-pengusul');
+                default:
+                    return redirect('/'); // Redirect to home or a default page
+            }
         }
+        return back()->with('failed', 'NIP atau kata sandi anda salah');
     }
-    return back()->with('loginError', 'login failed!');
-}
 
 
     /**
@@ -92,6 +92,6 @@ class LoginController extends Controller
             request()->session()->regenerateToken();
         }
 
-        return redirect('/');
+        return redirect('/')->with('logoutsuccess', 'Anda berhasil keluar');
     }
 }

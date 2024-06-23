@@ -2,7 +2,7 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-      <a href="/" class="app-brand-link">
+      <a href="/dashboard-pengusul" class="app-brand-link">
         <span class="app-brand-logo demo">
             <img src="{{ asset('assets/') }}/img/favicon/polindra.png" alt="" width="40px" height="40px">
         </span>
@@ -19,8 +19,8 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboards -->
-      <li class="menu-item {{ Request::is('/') ? 'active' : '' }}">
-        <a href="/" class="menu-link">
+      <li class="menu-item {{ Request::is('dashboard-pengusul') ? 'active' : '' }}">
+        <a href="/dashboard-pengusul" class="menu-link">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
             <div data-i18n="Dashboards">Dashboards</div>
         </a>
@@ -29,6 +29,12 @@
         <a href="/notif-pengusul" class="menu-link">
             <i class="menu-icon tf-icons ti ti-bell"></i>
             <div data-i18n="Notifikasi">Notifikasi</div>
+        </a>
+      </li>
+      <li class="menu-item {{ Request::is('proses') ? 'active' : '' }}">
+        <a href="/proses" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-progress"></i>
+            <div data-i18n="Proses">Proses</div>
         </a>
       </li>
       {{-- <li class="menu-item {{ Request::is('profile') ? 'active' : '' }}">
@@ -46,7 +52,7 @@
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons ti ti-files"></i>
-          <div data-i18n="Kenaikan Pangkat">Kenaikan Pangkat</div>
+          <div data-i18n="Form Kenaikan Pangkat">Form Kenaikan Pangkat</div>
         </a>
             <ul class="menu-sub">
             <li class="menu-item {{ Request::is('table-regular') ? 'active' : '' }}">

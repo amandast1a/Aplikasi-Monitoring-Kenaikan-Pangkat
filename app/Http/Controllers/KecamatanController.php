@@ -36,9 +36,11 @@ class KecamatanController extends Controller
         $dataUpload = new Kecamatan;
         $dataUpload->kecamatan = $request->kecamatan;
 
-        $dataUpload->save();
-
-        return redirect('/kecamatan')->with('success', 'Data baru berhasil ditambahkan!');
+        if ($dataUpload->save()) {
+            return redirect('/kecamatan')->with('success', 'Data baru berhasil ditambahkan!');
+        } else {
+            return back()->with('failed', 'Data gagal di tambahkan');
+        }
     }
 
     /**
