@@ -65,7 +65,13 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->nip }}</td>
                                 <td>{{ $item->jabatan }}</td>
-                                <td><span class="badge bg-label-warning me-1">{{ $item->status }}</span></td>
+                                <td><span class="badge
+                                    @if($item->status == 'pending') bg-label-warning
+                                    @elseif($item->status == 'berhasil') bg-label-success
+                                    @elseif($item->status == 'ditolak') bg-label-danger
+                                    @endif
+                                    me-1">{{ $item->status }}</span>
+                                </td>
                                 <td>{{ $item->time }}</td>
                                 <td>
                                     <div class="dropdown">

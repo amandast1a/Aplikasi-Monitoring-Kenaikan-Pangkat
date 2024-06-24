@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/notif-pengusul', [NotificationController::class, 'notifPengusul']);
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
         Route::get('/table-jabatan-fungsional', [FormJabatanFungsionalController::class, 'index']);
+        Route::get('/proses-table-jabatan-fungsional', [FormJabatanFungsionalController::class, 'proses']);
         Route::get('/form-jabatan-fungsional', [FormJabatanFungsionalController::class, 'create']);
         Route::post('/form-jabatan-fungsional/post', [FormJabatanFungsionalController::class, 'store'])->name('jabatan.fungsional.post');
         Route::get('/form-jabatan-fungsional/{id}', [FormJabatanFungsionalController::class, 'show'])->name('jabatan.fungsional.show');
@@ -64,8 +65,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/form-jabatan-struktural', [FormJabatanStrukturalController::class, 'create']);
         Route::get('/form-regular', [FormPangkatRegularController::class, 'create']);
         Route::get('/table-regular', [FormPangkatRegularController::class, 'index']);
+        Route::get('/proses-table-regular', [FormPangkatRegularController::class, 'proses']);
         Route::get('/dashboard-pengusul', [DashboardController::class, 'index']);
-        Route::get('/proses', [ProsesController::class, 'index']);
 
     });
 

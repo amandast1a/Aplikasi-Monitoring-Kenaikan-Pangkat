@@ -26,6 +26,13 @@ class FormJabatanFungsionalController extends Controller
         return view('application.crud-form-jabatan.form-jabatan-fungsional');
     }
 
+    public function proses()
+    {
+        $user = Auth::user();
+        $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
+        return view('application.proses.teble-jabatan-fungsional', compact('Form_jabatan_fungsional'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */

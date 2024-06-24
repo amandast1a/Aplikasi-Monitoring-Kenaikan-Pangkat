@@ -22,6 +22,10 @@ class FormPangkatRegularController extends Controller
         return view('application.crud-form-regular.form-regular');
     }
 
+    public function proses()
+    {
+        return view('application.proses.teble-regular');
+    }
     /**
      * Store a newly created resource in storage.
      */

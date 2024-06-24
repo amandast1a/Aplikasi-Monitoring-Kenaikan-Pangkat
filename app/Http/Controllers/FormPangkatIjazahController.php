@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Form_jabatan_fungsional;
-use Illuminate\Support\Facades\Auth;
 
-class TableController extends Controller
+class FormPangkatIjazahController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-
-    public function regular()
+    public function index()
     {
+        //
     }
 
     /**
