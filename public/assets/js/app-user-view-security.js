@@ -17,8 +17,8 @@
               message: 'Please enter new password'
             },
             stringLength: {
-              min: 8,
-              message: 'Password must be more than 8 characters'
+              min: 5,
+              message: 'Password must be more than 5 characters'
             }
           }
         },
@@ -34,8 +34,8 @@
               message: 'The password and its confirm are not the same'
             },
             stringLength: {
-              min: 8,
-              message: 'Password must be more than 8 characters'
+              min: 5,
+              message: 'Password must be more than 5 characters'
             }
           }
         }

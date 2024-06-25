@@ -102,10 +102,10 @@
                     <div class="card tour-card">
                       <h5 class="card-header">Pengajuan Kenaikan Pangkat</h5>
                       <div class="card-body">
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-regular" >Formulir usul kenaikan pangkat reguler</a>
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-jabatan-fungsional" >Formulir usul kenaikan pangkat jabatan fungsional</a>
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-jabatan-fungsional" >Formulir usul kenaikan pangkat jabatan struktural</a>
-                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="/table-jabatan-fungsional" >Formulir usul kenaikan pangkat penyesuaian ijazah</a>
+                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="" >Formulir usul kenaikan pangkat reguler</a>
+                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="" >Formulir usul kenaikan pangkat jabatan fungsional</a>
+                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="" >Formulir usul kenaikan pangkat jabatan struktural</a>
+                        <a class="btn btn-primary " style="margin-right: 15px; margin-bottom: 15px;" href="" >Formulir usul kenaikan pangkat penyesuaian ijazah</a>
                       </div>
                     </div>
                   </div>

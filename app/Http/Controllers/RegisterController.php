@@ -32,7 +32,7 @@ class RegisterController extends Controller
             'jabatan' => 'required|string|max:255',
             'nip' => 'required|string|max:20|unique:users',
             'tanggal_lahir' => 'required|date',
-            'password' => 'required|string|min:8|',
+            'password' => 'required|string|min:5|',
         ]);
 
 

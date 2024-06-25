@@ -56,7 +56,7 @@
          data-bs-auto-close="outside"
          aria-expanded="false">
          <i class="ti ti-bell ti-md"></i>
-         <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+         <!-- <span class="badge bg-danger rounded-pill badge-notifications">5</span> -->
        </a>
        <ul class="dropdown-menu dropdown-menu-end py-0">
          <li class="dropdown-menu-header border-bottom">
@@ -72,7 +72,7 @@
              ></a>
            </div>
          </li>
-         <li class="dropdown-notifications-list scrollable-container">
+         <!-- <li class="dropdown-notifications-list scrollable-container">
            <ul class="list-group list-group-flush">
              <li class="list-group-item list-group-item-action dropdown-notifications-item">
                <div class="d-flex">
@@ -279,7 +279,7 @@
                </div>
              </li>
            </ul>
-         </li>
+         </li> -->
          <li class="dropdown-menu-footer border-top">
            <a
              href="javascript:void(0);"
@@ -295,7 +295,7 @@
      <li class="nav-item navbar-dropdown dropdown-user dropdown">
        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
          <div class="avatar avatar-online">
-           <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+           <img src="" alt class="h-auto rounded-circle" />
          </div>
        </a>
        <ul class="dropdown-menu dropdown-menu-end">
@@ -304,7 +304,7 @@
              <div class="d-flex">
                <div class="flex-shrink-0 me-3">
                  <div class="avatar avatar-online">
-                   <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                   <img src="" alt class="h-auto rounded-circle" />
                  </div>
                </div>
                <div class="flex-grow-1">
@@ -317,12 +317,12 @@
          <li>
            <div class="dropdown-divider"></div>
          </li>
-         <li>
+         <!-- <li>
            <a class="dropdown-item" href="/profile">
              <i class="ti ti-user-check me-2 ti-sm"></i>
              <span class="align-middle">My Profile</span>
            </a>
-         </li>
+         </li> -->
          <li>
            <div class="dropdown-divider"></div>
          </li>

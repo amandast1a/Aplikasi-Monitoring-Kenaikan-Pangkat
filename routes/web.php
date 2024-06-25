@@ -38,14 +38,14 @@ Route::post('/login/proses', [LoginController::class, 'authenticate'])->name('au
 
 Route::middleware('auth')->group(function () {
     Route::group(['middleware' => 'ceklevel:superadmin'], function () {
-
+        
         // dashboard
         Route::get('/dashboard-super-admin', [DashboardController::class, 'super']);
-
+        
         // registrasi
         Route::get('/register-role', [RegisterController::class, 'index'])->name('register.role');
         Route::post('/register-store', [RegisterController::class, 'register'])->name('register.store');
-
+        
         // role
         Route::get('/role', [RoleController::class, 'index'])->name('role.table');
 
