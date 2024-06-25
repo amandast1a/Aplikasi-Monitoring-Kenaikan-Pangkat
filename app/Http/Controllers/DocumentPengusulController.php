@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form_jabatan_fungsional;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentPengusulController extends Controller
 {
@@ -12,8 +13,9 @@ class DocumentPengusulController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::all();
-        return view('super-admin.document-pengusul.table-pengusul', compact('Form_jabatan_fungsional'));
+        return view('super-admin.document-pengusul.table-pengusul', compact('Form_jabatan_fungsional', 'user'));
     }
 
     /**

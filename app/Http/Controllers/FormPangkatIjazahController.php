@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FormPangkatIjazahController extends Controller
 {
@@ -11,7 +12,8 @@ class FormPangkatIjazahController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        return view('application.crud-form-ijazah.table-ijazah', compact('user'));
     }
 
     /**
@@ -19,7 +21,8 @@ class FormPangkatIjazahController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        return view('application.crud-form-ijazah.form-ijazah', compact('user'));
     }
 
     /**

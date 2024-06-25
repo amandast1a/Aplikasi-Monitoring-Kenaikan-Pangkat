@@ -40,7 +40,7 @@
       <li class="menu-item {{ Request::is('pages') ? 'active' : '' }}">
         <a href="/pages" class="menu-link">
             <i class="menu-icon tf-icons ti ti-file"></i>
-            <div data-i18n="pages">pages</div>
+            <div data-i18n="Halaman">Halaman</div>
         </a>
       </li>
       <li class="menu-item {{ Request::is('document-pengusul') ? 'active' : '' }}">

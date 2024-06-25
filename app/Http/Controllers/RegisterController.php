@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Kecamatan;
+use Illuminate\Support\Facades\Auth;
 
 
 class RegisterController extends Controller
@@ -15,8 +16,9 @@ class RegisterController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $kecamatan = Kecamatan::all();
-        return view('super-admin.crud-role.form-user', compact('kecamatan'));
+        return view('super-admin.crud-role.form-user', compact('kecamatan', 'user'));
     }
 
     public function register(Request $request)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JabatanController extends Controller
 {
@@ -11,7 +12,8 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        return view('super-admin.crud-jabatan.table-jabatan');
+        $user = Auth::user();
+        return view('super-admin.crud-jabatan.table-jabatan' , compact('user'));
     }
 
     /**
@@ -19,7 +21,8 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        return view('super-admin.crud-jabatan.form');
+        $user = Auth::user();
+        return view('super-admin.crud-jabatan.form', compact('user'));
     }
 
     /**

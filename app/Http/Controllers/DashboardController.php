@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -11,17 +13,20 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('application.dashboard');
+        $user = Auth::user();
+        return view('application.dashboard', compact('user'));
 
     }
     public function super()
     {
-        return view('super-admin.dashboard');
+        $user = Auth::user();
+        return view('super-admin.dashboard', compact('user'));
 
     }
     public function verifikator()
     {
-        return view('verifikator.dashboard');
+        $user = Auth::user();
+        return view('verifikator.dashboard', compact('user'));
 
     }
 

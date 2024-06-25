@@ -80,79 +80,6 @@
                                 <label class="form-label" for="bs-validation-wa">No WA</label>
                                 <input type="text" class="form-control" id="bs-validation-wa" value="{{ $form->nomor_wa }}" readonly />
                             </div>
-                            <div class="mb-3">
-                                <div class="card p-2 shadow-none border">
-                                    <div class="rounded-2 text-center mb-3">
-                                        <object data="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
-                                            type="application/pdf" width="100%" height="300px">
-                                            <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
-                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
-                                                    download>men-download</a> dokumen ini.</p>
-                                        </object>
-                                    </div>
-                                    <div class="card-body p-3 pt-2">
-                                        <a class="w-100 btn btn-label-primary"
-                                            href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}" download><i
-                                                class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-skPangkat">SK PANGKAT TERAKHIR</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-skPangkat" name="doc_skPangkat" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-pakKonvensional">PAK KONVENSIONAL (PAK Terakhir)</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-pakKonvensional" name="doc_pakKonvensional" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-pakIntegrasi">PAK INTEGRASI</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-pakIntegrasi" name="doc_pakIntegrasi" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-pakKonversi">PAK KONVERSI</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-pakKonversi" name="doc_pakKonversi" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-penilaian2022">PENILAIAN KINERJA 2022</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-penilaian2022" name="doc_penilaian2022" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-penilaian2023">PENILAIAN KINERJA 2023</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-penilaian2023" name="doc_penilaian2023" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-jabatanLama">SK JABATAN ATASAN LANGSUNG</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-jabatanLama" name="doc_jabatanLama" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-jabatanTerakhir">SK JABATAN FUNGSIONAL LAMA</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-jabatanTerakhir" name="doc_jabatanTerakhir" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-pendidik">SERTIFIKAT PENDIDIK (Bagi Guru)</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-pendidik" name="doc_pendidik" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-uji">SERTIFIKAT UJI KOMPETENSI (Bagi yang naik jenjang)</label>
-                                <input type="file" class="form-control" id="bs-validation-upload-uji" name="doc_uji" accept="application/pdf" required />
-                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
                       </div>
                     </div>
                   </div>
@@ -172,7 +99,7 @@
                                                             download>men-download</a> dokumen ini.</p>
                                                 </object>
                                             </div>
-                                            <div class="card-body p-3 pt-2">
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
                                                 <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
                                                 <a class="w-100 btn btn-label-primary"
                                                     href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}" download><i
@@ -190,8 +117,8 @@
                                                             download>men-download</a> dokumen ini.</p>
                                                 </object>
                                             </div>
-                                            <div class="card-body p-3 pt-2">
-                                                <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">SK PANGKAT TERAKHIR</a>
                                                 <a class="w-100 btn btn-label-primary"
                                                     href="{{ asset('assets/documentJabatans/' . $form->doc_skPangkat) }}" download><i
                                                         class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -201,17 +128,17 @@
                                     <div class="col-sm-6 col-lg-4">
                                         <div class="card p-2 h-100 shadow-none border">
                                             <div class="rounded-2 text-center mb-3">
-                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_pakKonvensional) }}"
                                                     type="application/pdf" width="100%" height="300px">
                                                     <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
-                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_pakKonvensional) }}"
                                                             download>men-download</a> dokumen ini.</p>
                                                 </object>
                                             </div>
-                                            <div class="card-body p-3 pt-2">
-                                                <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">PAK KONVENSIONAL (PAK Terakhir)</a>
                                                 <a class="w-100 btn btn-label-primary"
-                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}" download><i
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_pakKonvensional) }}" download><i
                                                         class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
                                             </div>
                                         </div>
@@ -219,17 +146,17 @@
                                     <div class="col-sm-6 col-lg-4">
                                         <div class="card p-2 h-100 shadow-none border">
                                             <div class="rounded-2 text-center mb-3">
-                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_pakIntegrasi) }}"
                                                     type="application/pdf" width="100%" height="300px">
                                                     <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
-                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_pakIntegrasi) }}"
                                                             download>men-download</a> dokumen ini.</p>
                                                 </object>
                                             </div>
-                                            <div class="card-body p-3 pt-2">
-                                                <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">PAK INTEGRASI</a>
                                                 <a class="w-100 btn btn-label-primary"
-                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}" download><i
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_pakIntegrasi) }}" download><i
                                                         class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
                                             </div>
                                         </div>
@@ -237,17 +164,17 @@
                                     <div class="col-sm-6 col-lg-4">
                                         <div class="card p-2 h-100 shadow-none border">
                                             <div class="rounded-2 text-center mb-3">
-                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_pakKonversi) }}"
                                                     type="application/pdf" width="100%" height="300px">
                                                     <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
-                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_pakKonversi) }}"
                                                             download>men-download</a> dokumen ini.</p>
                                                 </object>
                                             </div>
-                                            <div class="card-body p-3 pt-2">
-                                                <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">PAK KONVERSI</a>
                                                 <a class="w-100 btn btn-label-primary"
-                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}" download><i
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_pakKonversi) }}" download><i
                                                         class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
                                             </div>
                                         </div>
@@ -255,17 +182,107 @@
                                     <div class="col-sm-6 col-lg-4">
                                         <div class="card p-2 h-100 shadow-none border">
                                             <div class="rounded-2 text-center mb-3">
-                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2022) }}"
                                                     type="application/pdf" width="100%" height="300px">
                                                     <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
-                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}"
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2022) }}"
                                                             download>men-download</a> dokumen ini.</p>
                                                 </object>
                                             </div>
-                                            <div class="card-body p-3 pt-2">
-                                                <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">PENILAIAN KINERJA 2022</a>
                                                 <a class="w-100 btn btn-label-primary"
-                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}" download><i
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2022) }}" download><i
+                                                        class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card p-2 h-100 shadow-none border">
+                                            <div class="rounded-2 text-center mb-3">
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2023) }}"
+                                                    type="application/pdf" width="100%" height="300px">
+                                                    <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2023) }}"
+                                                            download>men-download</a> dokumen ini.</p>
+                                                </object>
+                                            </div>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">PENILAIAN KINERJA 2023</a>
+                                                <a class="w-100 btn btn-label-primary"
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2023) }}" download><i
+                                                        class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card p-2 h-100 shadow-none border">
+                                            <div class="rounded-2 text-center mb-3">
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_jabatanAtasan) }}"
+                                                    type="application/pdf" width="100%" height="300px">
+                                                    <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanAtasan) }}"
+                                                            download>men-download</a> dokumen ini.</p>
+                                                </object>
+                                            </div>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">SK JABATAN ATASAN LANGSUNG</a>
+                                                <a class="w-100 btn btn-label-primary"
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanAtasan) }}" download><i
+                                                        class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card p-2 h-100 shadow-none border">
+                                            <div class="rounded-2 text-center mb-3">
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_jabatanLama) }}"
+                                                    type="application/pdf" width="100%" height="300px">
+                                                    <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanLama) }}"
+                                                            download>men-download</a> dokumen ini.</p>
+                                                </object>
+                                            </div>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">SK JABATAN FUNGSIONAL LAMA</a>
+                                                <a class="w-100 btn btn-label-primary"
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanLama) }}" download><i
+                                                        class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card p-2 h-100 shadow-none border">
+                                            <div class="rounded-2 text-center mb-3">
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_jabatanTerakhir) }}"
+                                                    type="application/pdf" width="100%" height="300px">
+                                                    <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanTerakhir) }}"
+                                                            download>men-download</a> dokumen ini.</p>
+                                                </object>
+                                            </div>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">SK JABATAN FUNGSIONAL TERAKHIR</a>
+                                                <a class="w-100 btn btn-label-primary"
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanTerakhir) }}" download><i
+                                                        class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card p-2 h-100 shadow-none border">
+                                            <div class="rounded-2 text-center mb-3">
+                                                <object data="{{ asset('assets/documentJabatans/' . $form->doc_pendidik) }}"
+                                                    type="application/pdf" width="100%" height="300px">
+                                                    <p>Browser tidak mendukung tampilan PDF. Anda dapat <a
+                                                            href="{{ asset('assets/documentJabatans/' . $form->doc_pendidik) }}"
+                                                            download>men-download</a> dokumen ini.</p>
+                                                </object>
+                                            </div>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">SERTIFIKAT PENDIDIK (Bagi Guru)</a>
+                                                <a class="w-100 btn btn-label-primary"
+                                                    href="{{ asset('assets/documentJabatans/' . $form->doc_pendidik) }}" download><i
                                                         class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
                                             </div>
                                         </div>
@@ -280,8 +297,8 @@
                                                             download>men-download</a> dokumen ini.</p>
                                                 </object>
                                             </div>
-                                            <div class="card-body p-3 pt-2">
-                                                <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
+                                            <div class="card-body p-3 pt-2" style="display: grid; ">
+                                                <a class="h5" href="app-academy-course-details.html">SERTIFIKAT UJI KOMPETENSI (Bagi yang naik jenjang)</a>
                                                 <a class="w-100 btn btn-label-primary"
                                                     href="{{ asset('assets/documentJabatans/' . $form->doc_uji) }}" download><i
                                                         class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>

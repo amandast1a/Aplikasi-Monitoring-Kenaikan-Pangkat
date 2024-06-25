@@ -202,7 +202,7 @@
                             </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                                @foreach ( $user as $item )
+                                @foreach ( $users as $item )
                                 <tr>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->nip }}</td>

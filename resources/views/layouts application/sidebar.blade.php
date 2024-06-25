@@ -44,17 +44,17 @@
             </li>
             <li class="menu-item {{ Request::is('proses-table-jabatan-fungsional') ? 'active' : '' }}">
                 <a href="/proses-table-jabatan-fungsional" class="menu-link">
-                <div data-i18n="Formulir usul kenaikan pangkat jabatan fungsional">Formulir usul kenaikan pangkat jabatan fungsional</div>
+                <div data-i18n="Proses Formulir usul kenaikan pangkat jabatan fungsional">Proses Formulir usul kenaikan pangkat jabatan fungsional</div>
                 </a>
             </li>
             <li class="menu-item {{ Request::is('proses-table-jabatan-struktural') ? 'active' : '' }}">
                 <a href="/proses-table-jabatan-struktural" class="menu-link" >
-                <div data-i18n="Formulir usul kenaikan pangkat jabatan struktural">Formulir usul kenaikan pangkat jabatan struktural</div>
+                <div data-i18n="Proses Formulir usul kenaikan pangkat jabatan struktural">Proses Formulir usul kenaikan pangkat jabatan struktural</div>
                 </a>
             </li>
             <li class="menu-item {{ Request::is('proses-table-jabatan-struktural') ? 'active' : '' }}">
                 <a href="/proses-table-jabatan-struktural" class="menu-link" >
-                <div data-i18n="Formulir usul kenaikan pangkat penyesuaian ijazah">Formulir usul kenaikan pangkat penyesuaian ijazah</div>
+                <div data-i18n="Proses Formulir usul kenaikan pangkat penyesuaian ijazah">Proses Formulir usul kenaikan pangkat penyesuaian ijazah</div>
                 </a>
             </li>
             </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
@@ -11,7 +12,8 @@ class NotificationController extends Controller
      */
     public function notifPengusul()
     {
-        return view('application.notif.index');
+        $user = Auth::user();
+        return view('application.notif.index', compact('user'));
     }
 
     /**

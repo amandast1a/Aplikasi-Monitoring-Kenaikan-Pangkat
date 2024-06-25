@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kecamatan;
+use Illuminate\Support\Facades\Auth;
 
 class KecamatanController extends Controller
 {
@@ -12,8 +13,9 @@ class KecamatanController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $kecamatan = Kecamatan::all();
-        return view('super-admin.crud-kecamatan.table-kecamatan', compact('kecamatan'));
+        return view('super-admin.crud-kecamatan.table-kecamatan', compact('kecamatan', 'user'));
     }
 
     /**
@@ -21,7 +23,8 @@ class KecamatanController extends Controller
      */
     public function create()
     {
-        return view('super-admin.crud-kecamatan.form');
+        $user = Auth::user();
+        return view('super-admin.crud-kecamatan.form', compact('user'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FormJabatanStrukturalController extends Controller
 {
@@ -11,7 +12,14 @@ class FormJabatanStrukturalController extends Controller
      */
     public function index()
     {
-        return view('application.crud-form-struktural.table-jabatan-struktural');
+        $user = Auth::user();
+        return view('application.crud-form-struktural.table-jabatan-struktural', compact('user'));
+    }
+
+    public function indexverifikator()
+    {
+        $user = Auth::user();
+        return view('verifikator.crud-form-struktural.table-jabatan-struktural', compact('user'));
     }
 
     /**
@@ -19,7 +27,8 @@ class FormJabatanStrukturalController extends Controller
      */
     public function create()
     {
-        return view('application.crud-form-struktural.form-jabatan-struktural');
+        $user = Auth::user();
+        return view('application.crud-form-struktural.form-jabatan-struktural', compact('user'));
     }
 
     /**

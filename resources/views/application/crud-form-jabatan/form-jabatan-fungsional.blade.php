@@ -160,12 +160,17 @@
                                 <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-jabatanLama">SK JABATAN ATASAN LANGSUNG</label>
+                                <label class="form-label" for="bs-validation-upload-jabatanAtasan">SK JABATAN ATASAN LANGSUNG</label>
+                                <input type="file" class="form-control" id="bs-validation-upload-jabatanAtasan" name="doc_jabatanAtasan" accept="application/pdf" required />
+                                <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="bs-validation-upload-jabatanLama">SK JABATAN FUNGSIONAL LAMA</label>
                                 <input type="file" class="form-control" id="bs-validation-upload-jabatanLama" name="doc_jabatanLama" accept="application/pdf" required />
                                 <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="bs-validation-upload-jabatanTerakhir">SK JABATAN FUNGSIONAL LAMA</label>
+                                <label class="form-label" for="bs-validation-upload-jabatanTerakhir">SK JABATAN FUNGSIONAL TERAKHIR</label>
                                 <input type="file" class="form-control" id="bs-validation-upload-jabatanTerakhir" name="doc_jabatanTerakhir" accept="application/pdf" required />
                                 <div class="invalid-feedback">Silahkan unggah file PDF maksimal 1MB</div>
                             </div>

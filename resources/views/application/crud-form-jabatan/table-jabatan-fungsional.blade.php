@@ -44,6 +44,7 @@
                 <div class="card">
                     <div class="col-md-12 d-flex justify-content-between align-items-cente">
                         <h5 class="card-header">Table Formulir usul kenaikan pangkat jabatan fungsional</h5>
+                        <a href="/proses-table-jabatan-fungsional" class="btn btn-outline-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px;">Lihat Proses</a>
                         <a href="/form-jabatan-fungsional" class="btn btn-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Tambah Data</a>
 
                     </div>
@@ -60,7 +61,7 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($Form_jabatan_fungsional as $item)
+                            @foreach ($Form_jabatan_fungsional->where('status', 'pending') as $item)
                             <tr>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->nip }}</td>
@@ -93,7 +94,56 @@
                             </tr>
                             @endforeach
                         </tbody>
+
                     </table>
+                    <nav aria-label="Page navigation" style="margin: 30px 30px 30px 20px;">
+                        <ul class="pagination pagination-sm">
+                            @if ($Form_jabatan_fungsional->currentPage() > 1)
+                                <li class="page-item prev">
+                                    <a class="page-link" href="{{ $Form_jabatan_fungsional->previousPageUrl() }}">
+                                        <i class="tf-icon fs-6 ti ti-chevrons-left"></i>
+                                    </a>
+                                </li>
+                            @endif
+
+                            @if ($Form_jabatan_fungsional->lastPage() > 1)
+                                <!-- First Page Link -->
+                                @if ($Form_jabatan_fungsional->currentPage() > 3)
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $Form_jabatan_fungsional->url(1) }}">1</a>
+                                    </li>
+                                    @if ($Form_jabatan_fungsional->currentPage() > 4)
+                                        <li class="page-item disabled"><span class="page-link">...</span></li>
+                                    @endif
+                                @endif
+
+                                <!-- Page Numbers -->
+                                @for ($i = max(1, $Form_jabatan_fungsional->currentPage() - 2); $i <= min($Form_jabatan_fungsional->lastPage(), $Form_jabatan_fungsional->currentPage() + 2); $i++)
+                                    <li class="page-item {{ $i == $Form_jabatan_fungsional->currentPage() ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $Form_jabatan_fungsional->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+
+                                <!-- Last Page Link -->
+                                @if ($Form_jabatan_fungsional->currentPage() < $Form_jabatan_fungsional->lastPage() - 2)
+                                    @if ($Form_jabatan_fungsional->currentPage() < $Form_jabatan_fungsional->lastPage() - 3)
+                                        <li class="page-item disabled"><span class="page-link">...</span></li>
+                                    @endif
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $Form_jabatan_fungsional->url($Form_jabatan_fungsional->lastPage()) }}">{{ $Form_jabatan_fungsional->lastPage() }}</a>
+                                    </li>
+                                @endif
+                            @endif
+
+                            @if ($Form_jabatan_fungsional->hasMorePages())
+                                <li class="page-item next">
+                                    <a class="page-link" href="{{ $Form_jabatan_fungsional->nextPageUrl() }}">
+                                        <i class="tf-icon fs-6 ti ti-chevrons-right"></i>
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </nav>
                     <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
@@ -178,6 +228,7 @@
                       </div>
                     </div>
                 </div>
+
                 <!--/ Basic Bootstrap Table -->
 
             </div>

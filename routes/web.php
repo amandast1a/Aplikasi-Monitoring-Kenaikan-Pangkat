@@ -17,6 +17,8 @@ use App\Http\Controllers\FormPangkatRegularController;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\DinasController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\FormPangkatijazahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,47 +38,101 @@ Route::post('/login/proses', [LoginController::class, 'authenticate'])->name('au
 
 Route::middleware('auth')->group(function () {
     Route::group(['middleware' => 'ceklevel:superadmin'], function () {
+
+        // dashboard
+        Route::get('/dashboard-super-admin', [DashboardController::class, 'super']);
+
+        // registrasi
         Route::get('/register-role', [RegisterController::class, 'index'])->name('register.role');
         Route::post('/register-store', [RegisterController::class, 'register'])->name('register.store');
-        Route::get('/dashboard-super-admin', [DashboardController::class, 'super']);
+
+        // role
         Route::get('/role', [RoleController::class, 'index'])->name('role.table');
+
+        // periode
         Route::get('/periode', [PeriodeController::class, 'index']);
         Route::get('/form-periode', [PeriodeController::class, 'create']);
+
+        // jabatan
         Route::get('/jabatan', [JabatanController::class, 'index']);
+        Route::get('/form-jabatan', [JabatanController::class, 'create']);
+
+        // kecamatan
         Route::get('/kecamatan', [KecamatanController::class, 'index']);
         Route::get('/form-kecamatan', [KecamatanController::class, 'create']);
         Route::post('/form-kecamatan/proses', [KecamatanController::class, 'proses'])->name('kecamatan.proses');
+
+        // dinas
         Route::get('/dinas', [DinasController::class, 'index']);
         Route::get('/form-dinas', [DinasController::class, 'create']);
-        Route::get('/form-jabatan', [JabatanController::class, 'create']);
+
+        // status
+        Route::get('/status', [StatusController::class, 'index']);
+        Route::get('/form-status', [StatusController::class, 'create']);
+        Route::post('/form-status/store', [StatusController::class, 'store'])->name('status.store');
+
+        // dokumen pengusul
         Route::get('/document-pengusul', [DocumentPengusulController::class, 'index']);
+
+        // halaman
         Route::get('/pages', [PagesController::class, 'index']);
     });
 
     Route::group(['middleware' => 'ceklevel:pengusul'], function () {
+
+        // dashboard
+        Route::get('/dashboard-pengusul', [DashboardController::class, 'index']);
+
+        // notifikasi
         Route::get('/notif-pengusul', [NotificationController::class, 'notifPengusul']);
+
+        // profile
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+        // form jabatan fungsional
         Route::get('/table-jabatan-fungsional', [FormJabatanFungsionalController::class, 'index']);
         Route::get('/proses-table-jabatan-fungsional', [FormJabatanFungsionalController::class, 'proses']);
         Route::get('/form-jabatan-fungsional', [FormJabatanFungsionalController::class, 'create']);
-        Route::post('/form-jabatan-fungsional/post', [FormJabatanFungsionalController::class, 'store'])->name('jabatan.fungsional.post');
         Route::get('/form-jabatan-fungsional/{id}', [FormJabatanFungsionalController::class, 'show'])->name('jabatan.fungsional.show');
+        Route::post('/form-jabatan-fungsional/post', [FormJabatanFungsionalController::class, 'store'])->name('jabatan.fungsional.post');
+
+        // form jabatan struktural
         Route::get('/table-jabatan-struktural', [FormJabatanStrukturalController::class, 'index']);
         Route::get('/form-jabatan-struktural', [FormJabatanStrukturalController::class, 'create']);
+
+        // form jabatan regular
         Route::get('/form-regular', [FormPangkatRegularController::class, 'create']);
         Route::get('/table-regular', [FormPangkatRegularController::class, 'index']);
         Route::get('/proses-table-regular', [FormPangkatRegularController::class, 'proses']);
-        Route::get('/dashboard-pengusul', [DashboardController::class, 'index']);
+
+        // form jabatan ijazah
+        Route::get('/form-jabatan-ijazah', [FormPangkatijazahController::class, 'create']);
+        Route::get('/table-jabatan-ijazah', [FormPangkatijazahController::class, 'index']);
+        Route::get('/proses-table-ijazah', [FormPangkatijazahController::class, 'proses']);
 
     });
 
     Route::group(['middleware' => 'ceklevel:verifikator'], function () {
+
+        // dashboard
         Route::get('/dashboard-verifikator', [DashboardController::class, 'verifikator']);
+
+        // profile
+        // Route::get('/profile-verifikator', [ProfileController::class, 'indexverifikator'])->name('profile');
+
+        // form jabatan fungsional
+        Route::get('/table-jabatan-fungsional-verifikator', [FormJabatanFungsionalController::class, 'indexverifikator']);
+        Route::get('/proses-table-jabatan-fungsional-verifikator', [FormJabatanFungsionalController::class, 'prosesverifikator']);
+        Route::get('/verifikasi-table-jabatan-fungsional-verifikator/{id}', [FormJabatanFungsionalController::class, 'verifikasi'])->name('verifikasi.jabatan.fungsional.edit');
+        Route::post('/verifikasi-table-jabatan-fungsional-verifikator/post/{id}', [FormJabatanFungsionalController::class, 'verifikasipost'])->name('verifikasi.jabatan.fungsional.post');
+        Route::get('/form-jabatan-fungsional-verifikator/{id}', [FormJabatanFungsionalController::class, 'showverifikator'])->name('jabatan.fungsional.show.verifikator');
+
+        // form jabatan struktural
+        Route::get('/table-jabatan-struktural-verifikator', [FormJabatanStrukturalController::class, 'indexverifikator']);
+
+        // form jabatan regular
+        Route::get('/table-regular-verifikator', [FormPangkatRegularController::class, 'indexverifikator']);
+        Route::get('/proses-table-regular-verifikator', [FormPangkatRegularController::class, 'prosesverifikator']);
     });
 
-
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

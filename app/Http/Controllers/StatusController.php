@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Status;
+use Illuminate\Support\Facades\Auth;
 
 class StatusController extends Controller
 {
@@ -12,7 +13,9 @@ class StatusController extends Controller
      */
     public function index()
     {
-        return view('super-admin.crud-status.table-status');
+        $user = Auth::user();
+        $status =Status::all();
+        return view('super-admin.crud-status.table-status', compact('user', 'status'));
     }
 
     /**
@@ -20,7 +23,8 @@ class StatusController extends Controller
      */
     public function create()
     {
-        return view('super-admin.crud-status.form');
+        $user = Auth::user();
+        return view('super-admin.crud-status.form', compact('user'));
     }
 
     /**
@@ -28,7 +32,18 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'status' => 'required|string',
+        ]);
+
+        $dataUpload = new Status;
+        $dataUpload->status = $request->status;
+
+        if ($dataUpload->save()) {
+            return redirect('/status')->with('success', 'Data baru berhasil ditambahkan!');
+        } else {
+            return back()->with('failed', 'Data gagal di tambahkan');
+        }
     }
 
     /**

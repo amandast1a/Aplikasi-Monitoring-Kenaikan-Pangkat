@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FormPangkatRegularController extends Controller
 {
@@ -11,7 +12,14 @@ class FormPangkatRegularController extends Controller
      */
     public function index()
     {
-        return view('application.crud-form-regular.table-regular');
+        $user = Auth::user();
+        return view('application.crud-form-regular.table-regular', compact('user'));
+    }
+
+    public function indexverifikator()
+    {
+        $user = Auth::user();
+        return view('verifikator.crud-form-regular.table-regular', compact('user'));
     }
 
     /**
@@ -19,12 +27,20 @@ class FormPangkatRegularController extends Controller
      */
     public function create()
     {
-        return view('application.crud-form-regular.form-regular');
+        $user = Auth::user();
+        return view('application.crud-form-regular.form-regular', compact('user'));
     }
 
     public function proses()
     {
-        return view('application.proses.teble-regular');
+        $user = Auth::user();
+        return view('application.proses.teble-regular', compact('user'));
+    }
+
+    public function prosesverifikator()
+    {
+        $user = Auth::user();
+        return view('verifikator.proses.teble-regular', compact('user'));
     }
     /**
      * Store a newly created resource in storage.

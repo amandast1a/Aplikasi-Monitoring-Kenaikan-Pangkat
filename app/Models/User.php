@@ -39,4 +39,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Form_jabatan_fungsional()
+    {
+        return $this->hasMany(Form_jabatan_fungsional::class);
+    }
+
 }

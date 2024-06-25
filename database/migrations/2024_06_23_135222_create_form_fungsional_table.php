@@ -30,6 +30,7 @@ return new class extends Migration
             $table->String('doc_pakKonversi');
             $table->String('doc_penilaian2022');
             $table->String('doc_penilaian2023');
+            $table->String('doc_jabatanAtasan');
             $table->String('doc_jabatanLama');
             $table->String('doc_jabatanTerakhir');
             $table->String('doc_pendidik');
