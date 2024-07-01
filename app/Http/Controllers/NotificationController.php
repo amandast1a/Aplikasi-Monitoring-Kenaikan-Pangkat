@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Notification;
+use App\Models\Form_jabatan_fungsional;
 use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
@@ -10,10 +12,42 @@ class NotificationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function notifPengusul()
+    public function index()
     {
         $user = Auth::user();
-        return view('application.notif.index', compact('user'));
+        $notifications = Notification::where('user_id', $user->id)->latest()->get();
+        $notifications = Notification::with('formFungsional')->latest()->get();
+        $unreadCount = $notifications->where('read', false)->count();
+        return view('application.notif.index', compact('notifications', 'user', 'unreadCount'));
+    }
+
+    public function markAsRead($id)
+    {
+        $notification = Notification::find($id);
+
+        if ($notification->user_id == Auth::id()) {
+            $notification->read = true;
+            $notification->save();
+        }
+
+        return redirect()->back()->with('success', 'Notifikasi ditandai sebagai sudah dibaca.');
+    }
+
+    public function archive($id)
+    {
+        $notification = Notification::findOrFail($id);
+        $notification->delete();
+
+        return redirect()->back()->with('success', 'Notifikasi berhasil dihapus.');
+    }
+
+    public function markAllAsRead(Request $request)
+    {
+        $user = Auth::user();
+
+        Notification::where('user_id', $user->id)->update(['read' => true]);
+
+        return back()->with('success', 'Semua notifikasi telah dibaca!');
     }
 
     /**

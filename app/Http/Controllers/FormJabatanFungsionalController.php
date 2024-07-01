@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Form_jabatan_fungsional;
 use App\Models\Status;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class FormJabatanFungsionalController extends Controller
 {
@@ -16,10 +18,12 @@ class FormJabatanFungsionalController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $notifications = Notification::where('user_id', $user->id)->latest()->get();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::latest()->paginate(5);
-        return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user'));
+        return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user', 'notifications'));
     }
+
     public function indexverifikator()
     {
         $user = Auth::user();
@@ -33,14 +37,18 @@ class FormJabatanFungsionalController extends Controller
     public function create()
     {
         $user = Auth::user();
-        return view('application.crud-form-jabatan.form-jabatan-fungsional', compact('user'));
+        $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
+        $unreadCount = $notifications->count();
+        return view('application.crud-form-jabatan.form-jabatan-fungsional', compact('user', 'notifications', 'unreadCount'));
     }
 
     public function proses()
     {
         $user = Auth::user();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
-        return view('application.proses.teble-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user'));
+        $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
+        $unreadCount = $notifications->count();
+        return view('application.proses.teble-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user', 'notifications', 'unreadCount'));
     }
     public function prosesverifikator()
     {
@@ -175,7 +183,8 @@ class FormJabatanFungsionalController extends Controller
     {
         $user = Auth::user();
         $form = Form_jabatan_fungsional::find($id);
-        return view('application.crud-form-jabatan.detail-form', ['form' => $form, 'user' =>$user]);
+        $notifications = Notification::where('user_id', $user->id)->latest()->get();
+        return view('application.crud-form-jabatan.detail-form', ['form' => $form, 'user' =>$user, 'notifications'=>$notifications]);
     }
 
     public function showverifikator($id)
@@ -192,19 +201,23 @@ class FormJabatanFungsionalController extends Controller
         $form = Form_jabatan_fungsional::find($id);
         return view('verifikator.crud-form-jabatan.verifikasi-form', ['form' => $form, 'user' =>$user, 'status' =>$status,]);
     }
+
     public function verifikasipost(Request $request, $id)
     {
         $data_update = Form_jabatan_fungsional::findOrFail($id);
-
 
         $validator = Validator::make($request->all(), [
             'status' => 'required|string',
         ]);
 
+        $data_update->update([
+            'keterangan' => $request->deskripsi,
+        ]);
+
         if ($validator->fails()) {
-                return back()
-                    ->withErrors($validator)
-                    ->withInput();
+            return back()
+                ->withErrors($validator)
+                ->withInput();
         }
 
         $validated = $validator->validated();
@@ -212,11 +225,29 @@ class FormJabatanFungsionalController extends Controller
         $updated = $data_update->update($validated);
 
         if ($updated) {
+            // Buat notifikasi berdasarkan status
+            if ($validated['status'] == 'berhasil diverifikasi') {
+                Notification::create([
+                    'user_id' => $data_update->user_id,
+                    'form_fungsionals_id' => $data_update->id,
+                    'type' => 'Selamat dokumen anda berhasil diverifikasi 🎉',
+                    'data' => 'Dokumen Anda telah berhasil diverifikasi.',
+                ]);
+            } elseif ($validated['status'] == 'gagal diverifikasi') {
+                Notification::create([
+                    'user_id' => $data_update->user_id,
+                    'form_fungsionals_id' => $data_update->id,
+                    'type' => 'Dokumen anda gagal diverisikasi',
+                    'data' => 'Dokumen Anda gagal diverifikasi. Silakan periksa kembali.',
+                ]);
+            }
+
             return redirect('/proses-table-jabatan-fungsional-verifikator')->with('success', 'Dokumen berhasil diverifikasi!');
         } else {
             return back()->with('error', 'Dokumen gagal diverifikasi');
         }
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -237,8 +268,37 @@ class FormJabatanFungsionalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function delete(string $id)
+{
+    $form = Form_jabatan_fungsional::findOrFail($id);
+
+    // Define an array of file attributes
+    $fileAttributes = [
+        'doc_suratPengantar',
+        'doc_skPangkat',
+        'doc_pakKonvensional',
+        'doc_pakIntegrasi',
+        'doc_pakKonversi',
+        'doc_penilaian2022',
+        'doc_penilaian2023',
+        'doc_jabatanAtasan',
+        'doc_jabatanLama',
+        'doc_jabatanTerakhir',
+        'doc_pendidik',
+        'doc_uji'
+    ];
+
+    // Loop through each attribute and delete the associated file if it exists
+    foreach ($fileAttributes as $attribute) {
+        if ($form->$attribute) {
+            Storage::delete('public/assets/documentJabatans/' . $form->$attribute);
+        }
     }
+
+    // Delete the record from the database
+    $form->delete();
+
+    return redirect()->back()->with('success', 'Data berhasil dihapus.');
+}
+
 }

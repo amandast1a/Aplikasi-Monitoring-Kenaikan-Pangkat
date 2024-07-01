@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Notification;
+use App\Models\Form_jabatan_fungsional;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -14,15 +16,25 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('application.dashboard', compact('user'));
-
+        $Form_jabatan_fungsional = Form_jabatan_fungsional::latest('updated_at')->first();
+        $jumlahpengusul = Form_jabatan_fungsional::count();
+        $form = Form_jabatan_fungsional::query();
+        $pendingstatus = Form_jabatan_fungsional::where('status', 'pending')->count();
+        $berhasilstatus = Form_jabatan_fungsional::where('status', 'berhasil diverifikasi')->count();
+        $gagalstatus = Form_jabatan_fungsional::where('status', 'gagal diverifikasi')->count();
+        $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
+        $unreadCount = $notifications->count();
+        return view('application.dashboard', compact('user', 'notifications', 'unreadCount', 'Form_jabatan_fungsional', 'jumlahpengusul', 'form', 'pendingstatus', 'berhasilstatus', 'gagalstatus'));
     }
-    public function super()
+
+    public function superadmin()
     {
         $user = Auth::user();
-        return view('super-admin.dashboard', compact('user'));
-
+        $form = Form_jabatan_fungsional::latest()->paginate(5);
+        $jumlahdata = Form_jabatan_fungsional::count();
+        return view('super-admin.dashboard', compact('user', 'form', 'jumlahdata'));
     }
+
     public function verifikator()
     {
         $user = Auth::user();

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/select2/select2.css" />
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/styles/index.min.css" />
 
+    <style>
+
+    </style>
   </head>
 
   <body>
@@ -42,6 +45,14 @@
                 <h4 class="py-3 mb-4">Notifikasi Pengusul</h4>
                 <!-- Basic Bootstrap Table -->
                 <div class="card">
+                    <div class="col-md-12 d-flex justify-content-between align-items-center">
+                        <h5 class="card-header"></h5>
+                        <form action="{{ route('notifications.readAll') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary justify-content-between" style="gap: 10px; height: fit-content; padding: 15px 35px 15px 35px; margin-top: 20px; margin-right: 20px;"><i class="ti ti-mail-opened fs-4"></i> Tandai dibaca semua
+                            </button>
+                        </form>
+                    </div>
                     <div class="table-responsive text-nowrap">
                     <table class="table">
                         <thead>
@@ -49,11 +60,59 @@
                             <th>Nama</th>
                             <th>Status</th>
                             <th>Deskripsi</th>
+                            <th></th>
                             <th>Waktu</th>
+                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                            @foreach ($notifications as $item)
+                                    <tr onclick="window.location.href='/jkbkj'" style="cursor: pointer;" id="row-notification">
+                                        <td>{{ $item->formFungsional->nama }}</td>
+                                        <td><span class="badge
+                                            @if($item->formFungsional->status == 'pending') bg-label-warning
+                                            @elseif($item->formFungsional->status == 'berhasil diverifikasi') bg-label-success
+                                            @elseif($item->formFungsional->status == 'gagal diverifikasi') bg-label-danger
+                                            @endif
+                                            me-1">{{ $item->formFungsional->status }}</span>
+                                        </td>
+                                        <td>
+                                            {{ $item->data }}, {{ substr(strip_tags($item->formFungsional->deskripsi), 0, 20) }}{{ strlen(strip_tags($item->formFungsional->deskripsi)) > 20 ? '...' : '' }}
+                                        </td>
+                                        <td>
+                                            @if(!$item->read)
+                                            <div class="flex-shrink-0 dropdown-notifications-actions">
+                                                <a class="dropdown-notifications-read btn btn-link p-0">
+                                                    <span class="badge bg-primary">NEW</span>
+                                                </a>
+                                            </div>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item->created_at->diffForHumans() }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                    data-bs-toggle="dropdown">
+                                                    <i class="ti ti-dots-vertical"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <form action="{{ route('notifications.read', $item->id) }}" method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="dropdown-item" href=""><i class="ti ti-mail-opened me-2"></i>Tandai sudah dibaca</button>
+                                                    </form>
+                                                    <form action="{{ route('notifications.archive', $item->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item delete"  data-id="{{ $item->id }}"><i
+                                                            class="ti ti-trash me-2"></i> Hapus notifikasi
+                                                        </button>
+                                                    </form>
+                                                </div>
 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                         </tbody>
                     </table>
                     </div>
@@ -92,11 +151,35 @@
     <script src="{{ asset('assets/') }}/vendor/libs/cleavejs/cleave-phone.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/moment/moment.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/flatpickr/flatpickr.js"></script>
-    <script src="{{ asset('assets/') }}/vendor/libs/select2/select2.js"></script>
     <script src="{{ asset('assets/') }}/js/form-layouts.js"></script>
-    <script src="{{ asset('assets/') }}/js/form-validation.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).on('click', '.delete', function(e){
+            var notificationid = $(this).attr('data-id');
+            e.preventDefault();
+            const form = $(this).closest('form');
+            Swal.fire({
+            title: "Hapus notifikasi?",
+            text: "Anda tidak bisa mengembalikan data",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, hapus sekarang"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+                Swal.fire({
+                title: "Berhasil dihapus",
+                text: "Notifiikasi anda berhasil dihapus",
+                icon: "success"
+                });
+            }
+            });
+        });
+    </script>
   </body>
 </html>

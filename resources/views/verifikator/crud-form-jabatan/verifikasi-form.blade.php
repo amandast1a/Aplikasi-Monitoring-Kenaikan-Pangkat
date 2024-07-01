@@ -60,7 +60,15 @@
                                     @endforeach
                                 </select>
                                 <div class="valid-feedback">Terisi</div>
-                                <div class="invalid-feedback">Silahkan pilih periode</div>
+                                <div class="invalid-feedback">Silahkan masukan status</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-message">Masukan Keterangan (opsional)</label>
+                                <textarea
+                                  id="basic-default-message"
+                                  name="keterangan"
+                                  class="form-control"
+                                  placeholder="Masukan Keterangan"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="bs-validation-name">Periode</label>
@@ -318,7 +326,7 @@
                                     </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <button type="submit" class="btn btn-primary">Verifikasi sekarang</button>
+                                                <button type="submit" class="btn btn-primary submit" data-id="{{ $form->id }}">Verifikasi sekarang</button>
                                             </div>
                                         </div>
                                 </div>
@@ -374,19 +382,31 @@
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    @if($errors->any() || Session::has('error'))
-        <script>
-            Swal.fire('Dokumen gagal diverifikasi', "", "warning");
-        </script>
-    @endif
-
-    @if (Session::has('success'))
-        <script>
-            Swal.fire('Berhasil', '{{ Session::get('success') }}', 'success');
-        </script>
-    @endif
-
+    <script>
+        $(document).on('click', '.submit', function(e){
+            var notificationid = $(this).attr('data-id');
+            e.preventDefault();
+            const form = $(this).closest('form');
+            Swal.fire({
+            title: "Sudah yakin dengan keputusan ini?",
+            text: "Silahkan cek kembali jika masih ragu",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, verifikasi sekarang"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+                Swal.fire({
+                title: "Berhasil verifikasi data",
+                text: "Data berhasil diverifikasi",
+                icon: "success"
+                });
+            }
+            });
+        });
+    </script>
 
   </body>
 </html>

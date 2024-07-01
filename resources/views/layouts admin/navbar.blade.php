@@ -308,8 +308,8 @@
                  </div>
                </div>
                <div class="flex-grow-1">
-                <span class="fw-medium d-block">{{ $user->nama }}</span>
-                <small class="text-muted">{{ $user->level }}</small>
+                {{-- <span class="fw-medium d-block">{{ $user->nama }}</span> --}}
+                {{-- <small class="text-muted">{{ $user->level }}</small> --}}
                </div>
              </div>
            </a>

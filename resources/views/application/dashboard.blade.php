@@ -8,7 +8,7 @@
   data-assets-path="../../assets/"
   data-template="vertical-menu-template">
   <head>
-    <title>Dashboard application</title>
+    <title>Dashboard Pengusul</title>
     @include('layouts application.header')
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/shepherd/shepherd.css" />
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/animate-on-scroll/animate-on-scroll.css" />
@@ -36,7 +36,7 @@
                     <div class="card h-100">
                       <div class="card-header d-flex justify-content-between">
                         <h5 class="card-title mb-0">Data Pengusul Kenaikan Pangkat</h5>
-                        <small class="text-muted">Updated 1 day ago</small>
+                        <small class="text-muted">Updated {{ $Form_jabatan_fungsional->updated_at->diffForHumans() }}</small>
                       </div>
                       <div class="card-body pt-2">
                         <div class="row gy-3">
@@ -46,7 +46,7 @@
                                 <i class="ti ti-chart-pie-2 ti-sm"></i>
                               </div>
                               <div class="card-info">
-                                <h5 class="mb-0">12</h5>
+                                <h5 class="mb-0">{{ $pendingstatus }}</h5>
                                 <small>Pending</small>
                               </div>
                             </div>
@@ -57,7 +57,7 @@
                                 <i class="ti ti-check ti-sm"></i>
                               </div>
                               <div class="card-info">
-                                <h5 class="mb-0">23</h5>
+                                <h5 class="mb-0">{{ $berhasilstatus }}</h5>
                                 <small>Di Terima</small>
                               </div>
                             </div>
@@ -68,7 +68,7 @@
                                 <i class="ti ti-x ti-sm"></i>
                               </div>
                               <div class="card-info">
-                                <h5 class="mb-0">0</h5>
+                                <h5 class="mb-0">{{ $gagalstatus }}</h5>
                                 <small>Di Tolak</small>
                               </div>
                             </div>
@@ -79,7 +79,7 @@
                                 <i class="ti ti-users ti-sm"></i>
                               </div>
                               <div class="card-info">
-                                <h5 class="mb-0">12</h5>
+                                <h5 class="mb-0">{{ $jumlahpengusul }}</h5>
                                 <small>Yang diusul</small>
                               </div>
                             </div>

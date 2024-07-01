@@ -38,14 +38,14 @@ Route::post('/login/proses', [LoginController::class, 'authenticate'])->name('au
 
 Route::middleware('auth')->group(function () {
     Route::group(['middleware' => 'ceklevel:superadmin'], function () {
-        
+
         // dashboard
-        Route::get('/dashboard-super-admin', [DashboardController::class, 'super']);
-        
+        Route::get('/dashboard-super-admin', [DashboardController::class, 'superadmin']);
+
         // registrasi
         Route::get('/register-role', [RegisterController::class, 'index'])->name('register.role');
         Route::post('/register-store', [RegisterController::class, 'register'])->name('register.store');
-        
+
         // role
         Route::get('/role', [RoleController::class, 'index'])->name('role.table');
 
@@ -73,6 +73,7 @@ Route::middleware('auth')->group(function () {
 
         // dokumen pengusul
         Route::get('/document-pengusul', [DocumentPengusulController::class, 'index']);
+        Route::delete('/document-pengusul/delete/{id}', [FormJabatanFungsionalController::class, 'delete'])->name('form-jabatan-fungsional.delete');
 
         // halaman
         Route::get('/pages', [PagesController::class, 'index']);
@@ -84,7 +85,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard-pengusul', [DashboardController::class, 'index']);
 
         // notifikasi
-        Route::get('/notif-pengusul', [NotificationController::class, 'notifPengusul']);
+        Route::get('/notifikasi-pengusul', [NotificationController::class, 'index']);
+        Route::post('/notifikasi/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+        Route::delete('/notifikasi/archive/{id}', [NotificationController::class, 'archive'])->name('notifications.archive');
+        Route::post('/notifikasi/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.readAll');
+
+
 
         // profile
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

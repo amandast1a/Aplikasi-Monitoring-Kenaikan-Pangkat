@@ -100,8 +100,8 @@
                                 <td>{{ $item->jabatan }}</td>
                                 <td><span class="badge
                                     @if($item->status == 'pending') bg-label-warning
-                                    @elseif($item->status == 'berhasil') bg-label-success
-                                    @elseif($item->status == 'ditolak') bg-label-danger
+                                    @elseif($item->status == 'berhasil diverifikasi') bg-label-success
+                                    @elseif($item->status == 'gagal diverifikasi') bg-label-danger
                                     @endif
                                     me-1">{{ $item->status }}</span>
                                 </td>
@@ -113,10 +113,12 @@
                                             <i class="ti ti-dots-vertical"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <form >
+                                            <form action="{{ route('form-jabatan-fungsional.delete', $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
                                                 <a class="dropdown-item" href=""><i class="ti ti-eye me-2"></i> Detail</a>
                                                 <a class="dropdown-item" href=""><i class="ti ti-pencil me-2"></i> Edit</a>
-                                                <button type="submit" class="dropdown-item"><i
+                                                <button type="submit" class="dropdown-item delete" data-id="{{ $item->id }}"><i
                                                         class="ti ti-trash me-2"></i> Delete</button>
                                             </form>
                                         </div>
@@ -163,11 +165,35 @@
     <script src="{{ asset('assets/') }}/vendor/libs/cleavejs/cleave-phone.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/moment/moment.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/flatpickr/flatpickr.js"></script>
-    <script src="{{ asset('assets/') }}/vendor/libs/select2/select2.js"></script>
     <script src="{{ asset('assets/') }}/js/form-layouts.js"></script>
-    <script src="{{ asset('assets/') }}/js/form-validation.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
     <script src="{{ asset('assets/') }}/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).on('click', '.delete', function(e){
+            var notificationid = $(this).attr('data-id');
+            e.preventDefault();
+            const form = $(this).closest('form');
+            Swal.fire({
+            title: "Hapus data?",
+            text: "Anda tidak bisa mengembalikan data jika dihapus",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, hapus sekarang"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+                Swal.fire({
+                title: "Berhasil dihapus",
+                text: "Data anda berhasil dihapus",
+                icon: "success"
+                });
+            }
+            });
+        });
+    </script>
   </body>
 </html>

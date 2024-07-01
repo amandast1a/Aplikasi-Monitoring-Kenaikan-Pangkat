@@ -9,9 +9,13 @@ class Status extends Model
 {
     use HasFactory;
     protected $table = "statuses";
+    protected $primarykey = "id";
     protected $fillable = [
-        'status',
-        'status_id',
-        'time',
+        'id', 'status','time',
     ];
+
+    public function Form_jabatan_fungsional()
+    {
+        return $this->hasMany(Form_jabatan_fungsional::class);
+    }
 }

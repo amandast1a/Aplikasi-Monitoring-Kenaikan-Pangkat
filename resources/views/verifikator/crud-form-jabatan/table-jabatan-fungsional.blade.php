@@ -64,13 +64,14 @@
                                 <td>{{ $item->user->nama }}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->nip }}</td>
-                                <td><span class="badge
-                                    @if($item->status == 'pending') bg-label-warning
-                                    @elseif($item->status == 'berhasil') bg-label-success
-                                    @elseif($item->status == 'ditolak') bg-label-danger
+                                <td>{{ $item->status->id }}</td>
+                                {{-- <td><span class="badge
+                                    @if($item->status->status == 'pending') bg-label-warning
+                                    @elseif($item->status->status == 'berhasil diverifikasi') bg-label-success
+                                    @elseif($item->status->status == 'ditolak') bg-label-danger
                                     @endif
-                                    me-1">{{ $item->status }}</span>
-                                </td>
+                                    me-1">{{ $item->status->status }}</span>
+                                </td> --}}
                                 <td>{{ $item->time }}</td>
                                 <td>
                                     <div class="dropdown">

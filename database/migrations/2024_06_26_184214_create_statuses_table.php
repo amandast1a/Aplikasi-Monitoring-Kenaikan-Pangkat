@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
-            $table->foreignId('status_id')->constrained()->onDelete('cascade');
+            $table->String('status');
             $table->datetime('time');
             $table->timestamps();
         });

@@ -109,7 +109,7 @@
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <div class="card-title mb-0">
                             <h5 class="mb-0 me-2">32</h5>
-                            <small>Pengguna</small>
+                            <small>Jumlah Pengusul</small>
                             </div>
                             <div class="card-icon">
                             <span class="badge bg-label-success rounded-pill p-2">
@@ -124,7 +124,7 @@
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <div class="card-title mb-0">
                             <h5 class="mb-0 me-2">4</h5>
-                            <small>Halaman Pengguna</small>
+                            <small>Jumlah Verifikator</small>
                             </div>
                             <div class="card-icon">
                             <span class="badge bg-label-success rounded-pill p-2">
@@ -203,7 +203,38 @@
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
+                                    @foreach ( $form as $item )
+                                    <tr>
+                                        <td>{{ $item->nama }}</td>
+                                        <td>{{ $item->nip }}</td>
+                                        <td>{{ $item->jabatan }}</td>
+                                        <td><span class="badge
+                                            @if($item->status == 'pending') bg-label-warning
+                                            @elseif($item->status == 'berhasil') bg-label-success
+                                            @elseif($item->status == 'ditolak') bg-label-danger
+                                            @endif
+                                            me-1">{{ $item->status }}</span>
+                                        </td>
+                                        <td>{{ $item->time }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                    data-bs-toggle="dropdown">
+                                                    <i class="ti ti-dots-vertical"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <form >
+                                                        <a class="dropdown-item" href=""><i class="ti ti-eye me-2"></i> Detail</a>
+                                                        <a class="dropdown-item" href=""><i class="ti ti-pencil me-2"></i> Edit</a>
+                                                        <button type="submit" class="dropdown-item"><i
+                                                                class="ti ti-trash me-2"></i> Delete</button>
+                                                    </form>
+                                                </div>
 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             </div>

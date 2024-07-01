@@ -45,4 +45,13 @@ class User extends Authenticatable
         return $this->hasMany(Form_jabatan_fungsional::class);
     }
 
+    /**
+     * Get the notifications for the user.
+     */
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+
 }

@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreignId('form_fungsionals_id')->constrained()->onDelete('cascade');
+            $table->string('type');
+            $table->string('data');
+            $table->boolean('read')->default(false);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
