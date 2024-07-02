@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Periode;
 use Illuminate\Support\Facades\Auth;
 
 class PeriodeController extends Controller
@@ -13,7 +14,8 @@ class PeriodeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('super-admin.crud-periode.table-periode', compact('user'));
+        $periode = Periode::all();
+        return view('super-admin.crud-periode.table-periode', compact('user', 'periode'));
     }
 
     /**
@@ -30,7 +32,18 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'periode' => 'required|string',
+        ]);
+
+        $dataUpload = new Periode;
+        $dataUpload->periode = $request->periode;
+
+        if ($dataUpload->save()) {
+            return redirect('/periode')->with('success', 'Data baru berhasil ditambahkan!');
+        } else {
+            return back()->with('failed', 'Data gagal di tambahkan');
+        }
     }
 
     /**

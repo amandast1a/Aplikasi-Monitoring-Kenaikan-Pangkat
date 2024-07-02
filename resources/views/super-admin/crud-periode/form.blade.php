@@ -46,12 +46,13 @@
                     <div class="card">
                       <h5 class="card-header">Formulir periode</h5>
                       <div class="card-body">
-                        <form class="needs-validation" novalidate>
+                        <form action="{{ route('periode.store') }}" method="POST" class="needs-validation" novalidate>
+                            @csrf
                           <div class="mb-3">
                             <label class="form-label" for="bs-validation-name">Periode</label>
                             <input
-                              type="month"
-                              value="2024-12"
+                              type="text"
+                              name="periode"
                               class="form-control"
                               id="bs-validation-name"
                               placeholder="masukan periode"

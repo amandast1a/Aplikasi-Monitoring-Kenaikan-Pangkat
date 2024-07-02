@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Dinas;
 use Illuminate\Support\Facades\Auth;
 
 class DinasController extends Controller
@@ -13,7 +14,8 @@ class DinasController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('super-admin.crud-dinas.table-dinas', compact('user'));
+        $dinas = Dinas::all();
+        return view('super-admin.crud-dinas.table-dinas', compact('user', 'dinas'));
     }
 
     /**
@@ -30,7 +32,18 @@ class DinasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'dinas' => 'required|string',
+        ]);
+
+        $dataUpload = new Dinas;
+        $dataUpload->dinas = $request->dinas;
+
+        if ($dataUpload->save()) {
+            return redirect('/dinas')->with('success', 'Data baru berhasil ditambahkan!');
+        } else {
+            return back()->with('failed', 'Data gagal di tambahkan');
+        }
     }
 
     /**

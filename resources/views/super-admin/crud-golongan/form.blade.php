@@ -8,7 +8,7 @@
   data-assets-path="{{ asset('assets/') }}/"
   data-template="vertical-menu-template">
   <head>
-    <title>Jabatan - Super Admin</title>
+    <title>Formulir jabatan - super admin</title>
     @include('layouts admin.header')
     {{-- page css --}}
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/flatpickr/flatpickr.css" />
@@ -39,31 +39,37 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span>Jabatan</h4>
-                <!-- Basic Bootstrap Table -->
-                <div class="card">
-                    <div class="col-md-12 d-flex justify-content-between align-items-cente">
-                        <h5 class="card-header">Table Jabatan</h5>
-                        <a href="/form-jabatan" class="btn btn-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Tambah Data</a>
+                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Formulir jabatan</h4>
 
+                <!-- Bootstrap Validation -->
+                <div class="col-md">
+                    <div class="card">
+                      <h5 class="card-header">Formulir jabatan</h5>
+                      <div class="card-body">
+                        <form action="{{ route('golongan.store') }}" method="POST" class="needs-validation" novalidate>
+                            @csrf
+                          <div class="mb-3">
+                            <label class="form-label" for="bs-validation-name">Jabatan</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="golongan"
+                              id="bs-validation-name"
+                              placeholder="masukan jabatan"
+                              required />
+                            <div class="valid-feedback">Terisi</div>
+                            <div class="invalid-feedback">Silahkan masukan jabatan</div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div>
-                    <div class="table-responsive text-nowrap">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Jabatan</th>
-                            <th>Waktu</th>
-                            <th>Aksi</th>
-                        </tr>
-                        </thead>
-                        <tbody class="table-border-bottom-0">
-
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-                <!--/ Basic Bootstrap Table -->
-
+                  </div>
+                  <!-- /Bootstrap Validation -->
             </div>
 
 

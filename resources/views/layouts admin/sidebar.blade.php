@@ -65,9 +65,9 @@
                     <div data-i18n="Periode">Periode</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('jabatan') ? 'active' : '' }}">
-                    <a href="/jabatan" class="menu-link" >
-                    <div data-i18n="jabatan">Jabatan</div>
+                <li class="menu-item {{ Request::is('golongan') ? 'active' : '' }}">
+                    <a href="/golongan" class="menu-link" >
+                    <div data-i18n="Golongan">Golongan</div>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::is('kecamatan') ? 'active' : '' }}">

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Golongan;
 use Illuminate\Support\Facades\Auth;
 
-class JabatanController extends Controller
+class GolonganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class JabatanController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('super-admin.crud-jabatan.table-jabatan' , compact('user'));
+        $golongan = Golongan::all();
+        return view('super-admin.crud-golongan.table-golongan' , compact('user', 'golongan'));
     }
 
     /**
@@ -22,7 +24,7 @@ class JabatanController extends Controller
     public function create()
     {
         $user = Auth::user();
-        return view('super-admin.crud-jabatan.form', compact('user'));
+        return view('super-admin.crud-golongan.form', compact('user'));
     }
 
     /**
@@ -30,7 +32,18 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'golongan' => 'required|string',
+        ]);
+
+        $dataUpload = new Golongan;
+        $dataUpload->golongan = $request->golongan;
+
+        if ($dataUpload->save()) {
+            return redirect('/golongan')->with('success', 'Data baru berhasil ditambahkan!');
+        } else {
+            return back()->with('failed', 'Data gagal di tambahkan');
+        }
     }
 
     /**

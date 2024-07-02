@@ -16,7 +16,7 @@ use App\Http\Controllers\FormJabatanStrukturalController;
 use App\Http\Controllers\FormPangkatRegularController;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\DinasController;
-use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\FormPangkatijazahController;
 
@@ -52,19 +52,22 @@ Route::middleware('auth')->group(function () {
         // periode
         Route::get('/periode', [PeriodeController::class, 'index']);
         Route::get('/form-periode', [PeriodeController::class, 'create']);
+        Route::post('/form-periode/store', [PeriodeController::class, 'store'])->name('periode.store');
 
         // jabatan
-        Route::get('/jabatan', [JabatanController::class, 'index']);
-        Route::get('/form-jabatan', [JabatanController::class, 'create']);
+        Route::get('/golongan', [GolonganController::class, 'index']);
+        Route::get('/form-golongan', [GolonganController::class, 'create']);
+        Route::post('/form-golongan/store', [GolonganController::class, 'store'])->name('golongan.store');
 
         // kecamatan
         Route::get('/kecamatan', [KecamatanController::class, 'index']);
         Route::get('/form-kecamatan', [KecamatanController::class, 'create']);
-        Route::post('/form-kecamatan/proses', [KecamatanController::class, 'proses'])->name('kecamatan.proses');
+        Route::post('/form-kecamatan/store', [KecamatanController::class, 'store'])->name('kecamatan.store');
 
         // dinas
         Route::get('/dinas', [DinasController::class, 'index']);
         Route::get('/form-dinas', [DinasController::class, 'create']);
+        Route::post('/form-dinas/store', [DinasController::class, 'store'])->name('dinas.store');
 
         // status
         Route::get('/status', [StatusController::class, 'index']);

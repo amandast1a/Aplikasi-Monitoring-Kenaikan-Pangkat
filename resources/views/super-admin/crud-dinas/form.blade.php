@@ -46,12 +46,14 @@
                     <div class="card">
                       <h5 class="card-header">Formulir dinas</h5>
                       <div class="card-body">
-                        <form class="needs-validation" novalidate>
+                        <form action="{{ route('dinas.store') }}" method="POST" class="needs-validation" novalidate>
+                            @csrf
                           <div class="mb-3">
                             <label class="form-label" for="bs-validation-name">Dinas</label>
                             <input
                               type="text"
                               class="form-control"
+                              name="dinas"
                               id="bs-validation-name"
                               placeholder="masukan dinas"
                               required />

@@ -19,9 +19,10 @@ class FormJabatanFungsionalController extends Controller
     {
         $user = Auth::user();
         $notifications = Notification::where('user_id', $user->id)->latest()->get();
+        $unreadCount = $notifications->count();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::latest()->paginate(5);
-        return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user', 'notifications'));
+        return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user', 'notifications', 'unreadCount'));
     }
 
     public function indexverifikator()

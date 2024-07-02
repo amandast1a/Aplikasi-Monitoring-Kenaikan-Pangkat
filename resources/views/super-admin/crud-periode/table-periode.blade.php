@@ -57,7 +57,29 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                            @foreach ( $periode as $item )
+                            <tr>
+                                <td>{{ $item->periode }}</td>
+                                <td>{{ $item->time }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                            data-bs-toggle="dropdown">
+                                            <i class="ti ti-dots-vertical"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <form >
+                                                <a class="dropdown-item" href=""><i class="ti ti-eye me-2"></i> Detail</a>
+                                                <a class="dropdown-item" href=""><i class="ti ti-pencil me-2"></i> Edit</a>
+                                                <button type="submit" class="dropdown-item"><i
+                                                        class="ti ti-trash me-2"></i> Delete</button>
+                                            </form>
+                                        </div>
 
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     </div>

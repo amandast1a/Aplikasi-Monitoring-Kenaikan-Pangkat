@@ -8,7 +8,7 @@
   data-assets-path="{{ asset('assets/') }}/"
   data-template="vertical-menu-template">
   <head>
-    <title>Formulir jabatan - super admin</title>
+    <title>Golongan - Super Admin</title>
     @include('layouts admin.header')
     {{-- page css --}}
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/flatpickr/flatpickr.css" />
@@ -39,35 +39,53 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Formulir jabatan</h4>
+                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span>Golongan</h4>
+                <!-- Basic Bootstrap Table -->
+                <div class="card">
+                    <div class="col-md-12 d-flex justify-content-between align-items-cente">
+                        <h5 class="card-header">Table Golongan</h5>
+                        <a href="/form-golongan" class="btn btn-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Tambah Data</a>
 
-                <!-- Bootstrap Validation -->
-                <div class="col-md">
-                    <div class="card">
-                      <h5 class="card-header">Formulir jabatan</h5>
-                      <div class="card-body">
-                        <form class="needs-validation" novalidate>
-                          <div class="mb-3">
-                            <label class="form-label" for="bs-validation-name">Jabatan</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="bs-validation-name"
-                              placeholder="masukan jabatan"
-                              required />
-                            <div class="valid-feedback">Terisi</div>
-                            <div class="invalid-feedback">Silahkan masukan jabatan</div>
-                          </div>
-                          <div class="row">
-                            <div class="col-12">
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
                     </div>
-                  </div>
-                  <!-- /Bootstrap Validation -->
+                    <div class="table-responsive text-nowrap">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Golongan</th>
+                            <th>Waktu</th>
+                            <th>Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            @foreach ( $golongan as $item )
+                            <tr>
+                                <td>{{ $item->golongan }}</td>
+                                <td>{{ $item->time }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                            data-bs-toggle="dropdown">
+                                            <i class="ti ti-dots-vertical"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <form >
+                                                <a class="dropdown-item" href=""><i class="ti ti-eye me-2"></i> Detail</a>
+                                                <a class="dropdown-item" href=""><i class="ti ti-pencil me-2"></i> Edit</a>
+                                                <button type="submit" class="dropdown-item"><i
+                                                        class="ti ti-trash me-2"></i> Delete</button>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                <!--/ Basic Bootstrap Table -->
+
             </div>
 
 

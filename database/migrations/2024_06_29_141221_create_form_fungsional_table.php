@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('form_fungsional', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('type')->default('formulir usulan kenaikan pangkat jabatan fungsional');
             $table->String('periode');
             $table->String('nama');
             $table->String('status');

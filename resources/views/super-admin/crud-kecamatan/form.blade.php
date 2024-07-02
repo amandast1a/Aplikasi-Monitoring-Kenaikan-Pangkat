@@ -46,7 +46,7 @@
                     <div class="card">
                       <h5 class="card-header">Formulir kecamatan</h5>
                       <div class="card-body">
-                        <form action="{{ route('kecamatan.proses') }}" method="post" class="needs-validation" novalidate>
+                        <form action="{{ route('kecamatan.store') }}" method="post" class="needs-validation" novalidate>
                             @csrf
                           <div class="mb-3">
                             <label class="form-label" for="bs-validation-name">Kecamatan</label>
