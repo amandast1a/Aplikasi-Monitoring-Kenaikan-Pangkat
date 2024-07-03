@@ -49,34 +49,34 @@
                     <div class="col-12 mb-4">
                       <div class="bs-stepper wizard-numbered mt-2">
                         <div class="bs-stepper-header">
-                          <div class="step" data-target="#account-details">
-                            <button type="button" class="step-trigger">
-                              <span class="bs-stepper-circle"><i class="ti ti-chart-pie-2 ti-sm"></i></span>
-                              <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">Pending</span>
-                                <span class="bs-stepper-subtitle">Masih proses verifikasi</span>
-                              </span>
-                            </button>
+                            <div class="step" data-target="#account-details">
+                              <button type="button" class="step-trigger">
+                                <span class="bs-stepper-circle"><i class="ti ti-chart-pie-2 ti-sm"></i></span>
+                                <span class="bs-stepper-label">
+                                  <span class="bs-stepper-title">Pending</span>
+                                  <span class="bs-stepper-subtitle">Masih proses verifikasi</span>
+                                </span>
+                              </button>
+                            </div>
+                            <div class="step" data-target="#personal-info">
+                              <button type="button" class="step-trigger">
+                                <span class="bs-stepper-circle"><i class="ti ti-x ti-sm"></i></span>
+                                <span class="bs-stepper-label">
+                                  <span class="bs-stepper-title">Ditolak</span>
+                                  <span class="bs-stepper-subtitle">Dokumen anda ditolak</span>
+                                </span>
+                              </button>
+                            </div>
+                            <div class="step" data-target="#social-links">
+                              <button type="button" class="step-trigger">
+                                <span class="bs-stepper-circle"><i class="ti ti-check ti-sm"></i></span>
+                                <span class="bs-stepper-label">
+                                  <span class="bs-stepper-title">Berhasil</span>
+                                  <span class="bs-stepper-subtitle">Dokumen anda berhasil di verifikasi</span>
+                                </span>
+                              </button>
+                            </div>
                           </div>
-                          <div class="step" data-target="#personal-info">
-                            <button type="button" class="step-trigger">
-                              <span class="bs-stepper-circle"><i class="ti ti-reload ti-sm"></i></span>
-                              <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">Direvisi</span>
-                                <span class="bs-stepper-subtitle">Dokumen anda harus diperbarui</span>
-                              </span>
-                            </button>
-                          </div>
-                          <div class="step" data-target="#social-links">
-                            <button type="button" class="step-trigger">
-                              <span class="bs-stepper-circle"><i class="ti ti-check ti-sm"></i></span>
-                              <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">Ditolak</span>
-                                <span class="bs-stepper-subtitle">Dokumen anda gagal diverifikasi</span>
-                              </span>
-                            </button>
-                          </div>
-                        </div>
                         <div class="bs-stepper-content">
                           <form onSubmit="return false">
                             <!-- Account Details -->
@@ -104,7 +104,8 @@
                                             <td>{{ $item->jabatan }}</td>
                                             <td><span class="badge
                                                 @if($item->status == 'pending') bg-label-warning
-                                                @elseif($item->status == 'gagal diverifikasi') bg-label-danger
+                                                @elseif($item->status == 'ditolak') bg-label-danger
+                                                @elseif($item->status == 'berhasil') bg-label-success
                                                 @endif
                                                 me-1">{{ $item->status }}</span>
                                             </td>
@@ -133,14 +134,15 @@
                                     </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
-                                        @foreach ($Form_jabatan_fungsional->where('status', 'revisi') as $item)
+                                        @foreach ($Form_jabatan_fungsional->where('status', 'ditolak') as $item)
                                         <tr>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->nip }}</td>
                                             <td>{{ $item->jabatan }}</td>
                                             <td><span class="badge
                                                 @if($item->status == 'pending') bg-label-warning
-                                                @elseif($item->status == 'gagal diverifikasi') bg-label-danger
+                                                @elseif($item->status == 'ditolak') bg-label-danger
+                                                @elseif($item->status == 'berhasil') bg-label-success
                                                 @endif
                                                 me-1">{{ $item->status }}</span>
                                             </td>
@@ -169,14 +171,15 @@
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                    @foreach ($Form_jabatan_fungsional->where('status', 'gagal diverifikasi') as $item)
+                                    @foreach ($Form_jabatan_fungsional->where('status', 'berhasil') as $item)
                                         <tr>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->nip }}</td>
                                             <td>{{ $item->jabatan }}</td>
                                             <td><span class="badge
                                                 @if($item->status == 'pending') bg-label-warning
-                                                @elseif($item->status == 'gagal diverifikasi') bg-label-danger
+                                                @elseif($item->status == 'ditolak') bg-label-danger
+                                                @elseif($item->status == 'berhasil') bg-label-success
                                                 @endif
                                                 me-1">{{ $item->status }}</span>
                                             </td>

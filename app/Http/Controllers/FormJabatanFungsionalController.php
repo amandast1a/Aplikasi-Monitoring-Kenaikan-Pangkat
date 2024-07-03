@@ -21,7 +21,7 @@ class FormJabatanFungsionalController extends Controller
     {
         $user = Auth::user();
         $notifications = Notification::where('user_id', $user->id)->latest()->get();
-        $unreadCount = $notifications->count();
+        $unreadCount = $notifications->where('read', false)->count();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::latest()->paginate(5);
         return view('application.crud-form-jabatan.table-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user', 'notifications', 'unreadCount'));
@@ -43,7 +43,7 @@ class FormJabatanFungsionalController extends Controller
         $golongan = Golongan::all();
         $periode = Periode::all();
         $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
-        $unreadCount = $notifications->count();
+        $unreadCount = $notifications->where('read', false)->count();
         return view('application.crud-form-jabatan.form-jabatan-fungsional', compact('user', 'notifications', 'unreadCount', 'periode', 'golongan'));
     }
 
@@ -52,9 +52,20 @@ class FormJabatanFungsionalController extends Controller
         $user = Auth::user();
         $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
         $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
-        $unreadCount = $notifications->count();
+        $unreadCount = $notifications->where('read', false)->count();
         return view('application.proses.teble-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user', 'notifications', 'unreadCount'));
     }
+
+    public function berhasil()
+    {
+        $user = Auth::user();
+        $notifications = Notification::where('user_id', $user->id)->latest()->get();
+        $unreadCount = $notifications->where('read', false)->count();
+        $Form_jabatan_fungsional = Form_jabatan_fungsional::where('user_id', $user->id)->get();
+        $Form_jabatan_fungsional = Form_jabatan_fungsional::latest()->paginate(5);
+        return view('application.crud-form-jabatan.table-berhasil-jabatan-fungsional', compact('Form_jabatan_fungsional', 'user', 'notifications', 'unreadCount'));
+    }
+
     public function prosesverifikator()
     {
         $user = Auth::user();
@@ -188,8 +199,9 @@ class FormJabatanFungsionalController extends Controller
     {
         $user = Auth::user();
         $form = Form_jabatan_fungsional::find($id);
-        $notifications = Notification::where('user_id', $user->id)->latest()->get();
-        return view('application.crud-form-jabatan.detail-form', ['form' => $form, 'user' =>$user, 'notifications'=>$notifications]);
+        $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
+        $unreadCount = $notifications->where('read', false)->count();
+        return view('application.crud-form-jabatan.detail-form', ['form' => $form, 'user' =>$user, 'notifications'=>$notifications, 'unreadCount'=>$unreadCount,]);
     }
 
     public function showverifikator($id)

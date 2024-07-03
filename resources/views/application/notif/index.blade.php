@@ -67,7 +67,8 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                             @foreach ($notifications as $item)
-                                    <tr onclick="window.location.href='/jkbkj'" style="cursor: pointer;" id="row-notification">
+                                    {{-- <tr onclick="window.location.href=''" style="cursor: pointer;" id="row-notification"> --}}
+                                    <tr>
                                         <td>{{ $item->formFungsional->nama }}</td>
                                         <td><span class="badge
                                             @if($item->formFungsional->status == 'pending') bg-label-warning

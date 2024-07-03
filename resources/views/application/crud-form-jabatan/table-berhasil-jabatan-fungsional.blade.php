@@ -8,7 +8,7 @@
   data-assets-path="{{ asset('assets/') }}/"
   data-template="vertical-menu-template">
   <head>
-    <title>Table formulir usul kenaikan pangkat jabatan fungsional - Pengusul</title>
+    <title>Table berhasil formulir usul kenaikan pangkat jabatan fungsional - Pengusul</title>
     @include('layouts application.header')
     {{-- page css --}}
     <link rel="stylesheet" href="{{ asset('assets/') }}/vendor/libs/flatpickr/flatpickr.css" />
@@ -39,13 +39,13 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span>Formulir usul kenaikan pangkat jabatan fungsional</h4>
+                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span>Table berhasil formulir usul kenaikan pangkat jabatan fungsional</h4>
                 <!-- Basic Bootstrap Table -->
                 <div class="card">
                     <div class="col-md-12 d-flex justify-content-between align-items-cente">
-                        <h5 class="card-header">Table Formulir usul kenaikan pangkat jabatan fungsional</h5>
-                        <a href="/proses-table-jabatan-fungsional" class="btn btn-outline-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px;">Lihat Proses</a>
-                        <a href="/form-jabatan-fungsional" class="btn btn-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Tambah Data</a>
+                        <h5 class="card-header">Table berhasil formulir usul kenaikan pangkat jabatan fungsional</h5>
+                        <a href="/proses-table-jabatan-fungsional" class="btn btn-outline-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Lihat Proses</a>
+                        {{-- <a href="/form-jabatan-fungsional" class="btn btn-primary" style="height: fit-content; padding: 15px 30px 15px 30px; margin-top: 20px; margin-right: 20px;">Tambah Data</a> --}}
 
                     </div>
                     <div class="table-responsive text-nowrap">
@@ -61,7 +61,7 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($Form_jabatan_fungsional->where('status', 'pending') as $item)
+                            @foreach ($Form_jabatan_fungsional->where('status', 'berhasil') as $item)
                             <tr>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->nip }}</td>

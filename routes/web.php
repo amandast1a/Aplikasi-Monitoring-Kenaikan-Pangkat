@@ -77,6 +77,7 @@ Route::middleware('auth')->group(function () {
         // dokumen pengusul
         Route::get('/document-pengusul', [DocumentPengusulController::class, 'index']);
         Route::delete('/document-pengusul/delete/{id}', [FormJabatanFungsionalController::class, 'delete'])->name('form-jabatan-fungsional.delete');
+        Route::get('/document-pengusul/show/{id}', [DocumentPengusulController::class, 'show'])->name('document.pengusul.show');
 
         // halaman
         Route::get('/pages', [PagesController::class, 'index']);
@@ -100,6 +101,7 @@ Route::middleware('auth')->group(function () {
 
         // form jabatan fungsional
         Route::get('/table-jabatan-fungsional', [FormJabatanFungsionalController::class, 'index']);
+        Route::get('/table-berhasil-jabatan-fungsional', [FormJabatanFungsionalController::class, 'berhasil']);
         Route::get('/proses-table-jabatan-fungsional', [FormJabatanFungsionalController::class, 'proses']);
         Route::get('/form-jabatan-fungsional', [FormJabatanFungsionalController::class, 'create']);
         Route::get('/form-jabatan-fungsional/{id}', [FormJabatanFungsionalController::class, 'show'])->name('jabatan.fungsional.show');

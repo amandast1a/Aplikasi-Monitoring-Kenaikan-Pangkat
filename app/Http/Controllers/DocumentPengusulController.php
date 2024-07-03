@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form_jabatan_fungsional;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 
 class DocumentPengusulController extends Controller
@@ -39,7 +40,10 @@ class DocumentPengusulController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = Auth::user();
+        $form = Form_jabatan_fungsional::find($id);
+        $notifications = Notification::where('user_id', $user->id)->latest()->get();
+        return view('super-admin.document-pengusul.detail-form', ['form' => $form, 'user' =>$user, 'notifications'=>$notifications]);
     }
 
     /**

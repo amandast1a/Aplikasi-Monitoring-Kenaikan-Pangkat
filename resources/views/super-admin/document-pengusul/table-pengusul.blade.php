@@ -116,7 +116,7 @@
                                             <form action="{{ route('form-jabatan-fungsional.delete', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a class="dropdown-item" href=""><i class="ti ti-eye me-2"></i> Detail</a>
+                                                <a class="dropdown-item" href="{{ route('document.pengusul.show', $item->id) }}"><i class="ti ti-eye me-2"></i> Detail</a>
                                                 <a class="dropdown-item" href=""><i class="ti ti-pencil me-2"></i> Edit</a>
                                                 <button type="submit" class="dropdown-item delete" data-id="{{ $item->id }}"><i
                                                         class="ti ti-trash me-2"></i> Delete</button>
