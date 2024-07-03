@@ -4,7 +4,7 @@
     <div class="app-brand demo">
       <a href="/dashboard-super-admin" class="app-brand-link">
         <span class="app-brand-logo demo">
-            <img src="{{ asset('assets/') }}/img/favicon/polindra.png" alt="" width="40px" height="40px">
+            <img src="{{ asset('assets/') }}/img/favicon/logo.png" alt="" width="40px" height="40px">
         </span>
         <span class="app-brand-text demo menu-text fw-bold">Super admin</span>
       </a>

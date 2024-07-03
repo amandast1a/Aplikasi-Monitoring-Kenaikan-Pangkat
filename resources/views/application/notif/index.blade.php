@@ -71,8 +71,8 @@
                                         <td>{{ $item->formFungsional->nama }}</td>
                                         <td><span class="badge
                                             @if($item->formFungsional->status == 'pending') bg-label-warning
-                                            @elseif($item->formFungsional->status == 'berhasil diverifikasi') bg-label-success
-                                            @elseif($item->formFungsional->status == 'gagal diverifikasi') bg-label-danger
+                                            @elseif($item->formFungsional->status == 'berhasil') bg-label-success
+                                            @elseif($item->formFungsional->status == 'ditolak') bg-label-danger
                                             @endif
                                             me-1">{{ $item->formFungsional->status }}</span>
                                         </td>

@@ -100,8 +100,8 @@
                                 <td>{{ $item->jabatan }}</td>
                                 <td><span class="badge
                                     @if($item->status == 'pending') bg-label-warning
-                                    @elseif($item->status == 'berhasil diverifikasi') bg-label-success
-                                    @elseif($item->status == 'gagal diverifikasi') bg-label-danger
+                                    @elseif($item->status == 'berhasil') bg-label-success
+                                    @elseif($item->status == 'ditolak') bg-label-danger
                                     @endif
                                     me-1">{{ $item->status }}</span>
                                 </td>

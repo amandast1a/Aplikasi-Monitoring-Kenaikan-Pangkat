@@ -105,8 +105,8 @@
                                             <td>{{ $item->nip }}</td>
                                             <td><span class="badge
                                                 @if($item->status == 'pending') bg-label-warning
-                                                @elseif($item->status == 'berhasil diverifikasi') bg-label-success
-                                                @elseif($item->status == 'gagal diverifikasi') bg-label-danger
+                                                @elseif($item->status == 'berhasil') bg-label-success
+                                                @elseif($item->status == 'gagal') bg-label-danger
                                                 @endif
                                                 me-1">{{ $item->status }}</span>
                                             </td>
@@ -151,15 +151,15 @@
                                     </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
-                                        @foreach ($Form_jabatan_fungsional->where('status', 'gagal diverifikasi') as $item)
+                                        @foreach ($Form_jabatan_fungsional->where('status', 'ditolak') as $item)
                                         <tr>
                                             <td>{{ $item->user->nama }}</td>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->nip }}</td>
                                             <td><span class="badge
                                                 @if($item->status == 'pending') bg-label-warning
-                                                @elseif($item->status == 'berhasil diverifikasi') bg-label-success
-                                                @elseif($item->status == 'gagal diverifikasi') bg-label-danger
+                                                @elseif($item->status == 'berhasil') bg-label-success
+                                                @elseif($item->status == 'ditolak') bg-label-danger
                                                 @endif
                                                 me-1">{{ $item->status }}</span>
                                             </td>
@@ -204,15 +204,15 @@
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                    @foreach ($Form_jabatan_fungsional->where('status', 'berhasil diverifikasi') as $item)
+                                    @foreach ($Form_jabatan_fungsional->where('status', 'berhasil') as $item)
                                         <tr>
                                             <td>{{ $item->user->nama }}</td>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->nip }}</td>
                                             <td><span class="badge
                                                 @if($item->status == 'pending') bg-label-warning
-                                                @elseif($item->status == 'berhasil diverifikasi') bg-label-success
-                                                @elseif($item->status == 'gagal diverifikasi') bg-label-danger
+                                                @elseif($item->status == 'berhasil') bg-label-success
+                                                @elseif($item->status == 'ditolak') bg-label-danger
                                                 @endif
                                                 me-1">{{ $item->status }}</span>
                                             </td>

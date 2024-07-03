@@ -20,8 +20,8 @@ class DashboardController extends Controller
         $jumlahpengusul = Form_jabatan_fungsional::count();
         $form = Form_jabatan_fungsional::query();
         $pendingstatus = Form_jabatan_fungsional::where('status', 'pending')->count();
-        $berhasilstatus = Form_jabatan_fungsional::where('status', 'berhasil diverifikasi')->count();
-        $gagalstatus = Form_jabatan_fungsional::where('status', 'gagal diverifikasi')->count();
+        $berhasilstatus = Form_jabatan_fungsional::where('status', 'berhasil')->count();
+        $gagalstatus = Form_jabatan_fungsional::where('status', 'ditolak')->count();
         $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
         $unreadCount = $notifications->count();
         return view('application.dashboard', compact('user', 'notifications', 'unreadCount', 'Form_jabatan_fungsional', 'jumlahpengusul', 'form', 'pendingstatus', 'berhasilstatus', 'gagalstatus'));
@@ -30,15 +30,25 @@ class DashboardController extends Controller
     public function superadmin()
     {
         $user = Auth::user();
-        $form = Form_jabatan_fungsional::latest()->paginate(5);
-        $jumlahdata = Form_jabatan_fungsional::count();
-        return view('super-admin.dashboard', compact('user', 'form', 'jumlahdata'));
+        $Form_jabatan_fungsional = Form_jabatan_fungsional::latest('updated_at')->first();
+        $jumlahpengusul = Form_jabatan_fungsional::count();
+        $form = Form_jabatan_fungsional::query();
+        $pendingstatus = Form_jabatan_fungsional::where('status', 'pending')->count();
+        $berhasilstatus = Form_jabatan_fungsional::where('status', 'berhasil')->count();
+        $gagalstatus = Form_jabatan_fungsional::where('status', 'ditolak')->count();
+        return view('super-admin.dashboard', compact('user', 'Form_jabatan_fungsional', 'jumlahpengusul', 'form', 'pendingstatus', 'berhasilstatus', 'gagalstatus'));
     }
 
     public function verifikator()
     {
         $user = Auth::user();
-        return view('verifikator.dashboard', compact('user'));
+        $Form_jabatan_fungsional = Form_jabatan_fungsional::latest('updated_at')->first();
+        $jumlahpengusul = Form_jabatan_fungsional::count();
+        $form = Form_jabatan_fungsional::query();
+        $pendingstatus = Form_jabatan_fungsional::where('status', 'pending')->count();
+        $berhasilstatus = Form_jabatan_fungsional::where('status', 'berhasil')->count();
+        $gagalstatus = Form_jabatan_fungsional::where('status', 'ditolak')->count();
+        return view('verifikator.dashboard', compact('user', 'Form_jabatan_fungsional', 'jumlahpengusul', 'form', 'pendingstatus', 'berhasilstatus', 'gagalstatus'));
 
     }
 

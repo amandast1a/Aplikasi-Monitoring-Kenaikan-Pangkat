@@ -24,9 +24,9 @@
               <div class="app-brand justify-content-center mb-4 mt-2">
                 <a href="index.html" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
-                    <img src="{{ asset('assets/') }}/img/favicon/polindra.png" alt="" width="40px" height="40px">
+                    <img src="{{ asset('assets/') }}/img/favicon/logo.png" alt="" width="40px" height="40px">
                   </span>
-                  <span class="app-brand-text demo text-body fw-bold ms-1" style="font-size: 16px;">MONITORING KENAIKAN PANGKAT</span>
+                  <span class="app-brand-text demo text-body fw-bold ms-1" style="font-size: 16px; width: 100%;">PENGOLAHAN DATA DAN MONITORING KENAIKAN PANGKAT</span>
                 </a>
               </div>
               <!-- /Logo -->
