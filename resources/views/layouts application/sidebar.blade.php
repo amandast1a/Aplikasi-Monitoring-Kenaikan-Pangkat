@@ -87,8 +87,8 @@
             </li>
             </ul>
       </li>
-      <li class="menu-item {{ Request::is('notifikasi-pengusul') ? 'active' : '' }}">
-        <a href="/notifikasi-pengusul" class="menu-link">
+      <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+        <a href="" class="menu-link">
             <i class="menu-icon tf-icons ti ti-check"></i>
             {{-- <i class="ti ti-rosette-discount-check"></i> --}}
             {{-- <i class="ti ti-circle-dashed-check"></i> --}}
