@@ -231,14 +231,14 @@ class FormJabatanFungsionalController extends Controller
 
         if ($updated) {
             // Buat notifikasi berdasarkan status
-            if ($validated['status'] == 'berhasil diverifikasi') {
+            if ($validated['status'] == 'berhasil') {
                 Notification::create([
                     'user_id' => $data_update->user_id,
                     'form_fungsionals_id' => $data_update->id,
                     'type' => 'Selamat dokumen anda berhasil diverifikasi 🎉',
                     'data' => 'Dokumen Anda telah berhasil diverifikasi.',
                 ]);
-            } elseif ($validated['status'] == 'gagal diverifikasi') {
+            } elseif ($validated['status'] == 'ditolak') {
                 Notification::create([
                     'user_id' => $data_update->user_id,
                     'form_fungsionals_id' => $data_update->id,
