@@ -55,10 +55,14 @@
                             <div class="mb-3">
                                 <label class="form-label" for="bs-validation-country">Pilih Periode</label>
                                 <select class="form-select" id="bs-validation-country" name="periode" required>
-                                    <option value="">Pilih Periode</option>
-                                    <option value="Agustus">Agustus</option>
-                                    <option value="Oktober">Oktober</option>
-                                    <option value="Desember">Desember</option>
+                                    @foreach ($periode as $periode)
+                                        @if (old('periode') === $periode)
+                                            <option value="{{ $periode->periode }}" selected>{{ $periode->periode }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $periode->periode }}">{{ $periode->periode }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                                 <div class="valid-feedback">Terisi</div>
                                 <div class="invalid-feedback">Silahkan pilih periode</div>
@@ -78,7 +82,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="bs-validation-golongan">Pangkat/Golongan Ruang</label>
                                 <select class="form-select" id="bs-validation-golongan" name="golongan" required>
-                                    <option value="">Pilih Pangkat/Golongan Ruang</option>
+                                    {{-- <option value="">Pilih Pangkat/Golongan Ruang</option>
                                     <option value="Juru Muda - I/A">Juru Muda - I/A</option>
                                     <option value="Juru Muda TK.I - I/B">Juru Muda TK.I - I/B</option>
                                     <option value="Juru - I/C">Juru - I/C</option>
@@ -95,7 +99,15 @@
                                     <option value="Pembina TK.I - IV/B">Pembina TK.I - IV/B</option>
                                     <option value="Pembina Muda - IV/C">Pembina Muda - IV/C</option>
                                     <option value="Pembina Madya - IV/D">Pembina Madya - IV/D</option>
-                                    <option value="Pembina Utama - IV/E">Pembina Utama - IV/E</option>
+                                    <option value="Pembina Utama - IV/E">Pembina Utama - IV/E</option> --}}
+                                    @foreach ($golongan as $golongan)
+                                        @if (old('golongan') === $golongan)
+                                            <option value="{{ $golongan->golongan }}" selected>{{ $golongan->golongan }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $golongan->golongan }}">{{ $golongan->golongan }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                                 <div class="valid-feedback">Terisi</div>
                                 <div class="invalid-feedback">Silahkan pilih pangkat/golongan ruang</div>

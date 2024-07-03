@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form_jabatan_fungsional;
+use App\Models\Golongan;
+use App\Models\Periode;
 use App\Models\Status;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
@@ -38,9 +40,11 @@ class FormJabatanFungsionalController extends Controller
     public function create()
     {
         $user = Auth::user();
+        $golongan = Golongan::all();
+        $periode = Periode::all();
         $notifications = Notification::where('user_id', $user->id)->where('read', false)->get();
         $unreadCount = $notifications->count();
-        return view('application.crud-form-jabatan.form-jabatan-fungsional', compact('user', 'notifications', 'unreadCount'));
+        return view('application.crud-form-jabatan.form-jabatan-fungsional', compact('user', 'notifications', 'unreadCount', 'periode', 'golongan'));
     }
 
     public function proses()
