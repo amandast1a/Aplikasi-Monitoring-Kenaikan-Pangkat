@@ -118,7 +118,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">SURAT PENGANTAR (dari Kepala SKPD)</a>
+                                                    <a class="h5" href="">SURAT PENGANTAR (dari Kepala SKPD)</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_suratPengantar) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -136,7 +136,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">SK PANGKAT TERAKHIR</a>
+                                                    <a class="h5" href="">SK PANGKAT TERAKHIR</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_skPangkat) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -154,7 +154,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">PAK KONVENSIONAL (PAK Terakhir)</a>
+                                                    <a class="h5" href="">PAK KONVENSIONAL (PAK Terakhir)</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_pakKonvensional) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -172,7 +172,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">PAK INTEGRASI</a>
+                                                    <a class="h5" href="">PAK INTEGRASI</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_pakIntegrasi) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -190,7 +190,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">PAK KONVERSI</a>
+                                                    <a class="h5" href="">PAK KONVERSI</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_pakKonversi) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -208,7 +208,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">PENILAIAN KINERJA 2022</a>
+                                                    <a class="h5" href="">PENILAIAN KINERJA 2022</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2022) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -226,7 +226,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">PENILAIAN KINERJA 2023</a>
+                                                    <a class="h5" href="">PENILAIAN KINERJA 2023</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_penilaian2023) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -244,7 +244,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">SK JABATAN ATASAN LANGSUNG</a>
+                                                    <a class="h5" href="">SK JABATAN ATASAN LANGSUNG</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanAtasan) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -262,7 +262,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">SK JABATAN FUNGSIONAL LAMA</a>
+                                                    <a class="h5" href="">SK JABATAN FUNGSIONAL LAMA</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanLama) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -280,7 +280,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">SK JABATAN FUNGSIONAL TERAKHIR</a>
+                                                    <a class="h5" href="">SK JABATAN FUNGSIONAL TERAKHIR</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_jabatanTerakhir) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -298,7 +298,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">SERTIFIKAT PENDIDIK (Bagi Guru)</a>
+                                                    <a class="h5" href="">SERTIFIKAT PENDIDIK (Bagi Guru)</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_pendidik) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
@@ -316,7 +316,7 @@
                                                     </object>
                                                 </div>
                                                 <div class="card-body p-3 pt-2" style="display: grid; ">
-                                                    <a class="h5" href="app-academy-course-details.html">SERTIFIKAT UJI KOMPETENSI (Bagi yang naik jenjang)</a>
+                                                    <a class="h5" href="">SERTIFIKAT UJI KOMPETENSI (Bagi yang naik jenjang)</a>
                                                     <a class="w-100 btn btn-label-primary"
                                                         href="{{ asset('assets/documentJabatans/' . $form->doc_uji) }}" download><i
                                                             class="me-2 mt-n1 scaleX-n1-rtl"></i>Download</a>
